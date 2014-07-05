@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Oculus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="padding-top: 50px;">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="nabvar-header navbar-brand">
+			<%= link_to image_tag( "Oculus.png", size: "30"), root_url %>
+			<%= link_to "Oculus for Education", root_url %>
+		</div>
+		
+		
+		<ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+			<li>
+				<%= link_to current_user.first_name, user_path(current_user) %>
+			</li>
+			<li>
+			<li> <a href="/logout_user">Cerrar Sesion</a></li>
+			</li>
+		  <% else %>
+			<li>
+				<%= link_to "Registrarse", new_user_path %>
+			</li>
+  		    <li class="dropdown" id="menuLogin">
+			  <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+			  <div class="dropdown-menu" style="padding:17px;">
+				<%= render "sessions/new" %>
+			  </div>
+		    </li>
+		  <% end %>
+            
+		</ul>
+	</div>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>

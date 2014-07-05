@@ -1,0 +1,37 @@
+
+<div class="center-block" style="width:300px;margin-top:20px;">
+	<%= form_for(@user, html: { :role => "form" }) do |f| %>
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@user.errors.count, "error") %> in creating Account : </h2>
+		  <ul>
+		  <% @user.errors.each do |attr,msg| %>
+			<li><%=attr %> | <%=msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
+	  <div class="form-group">
+		<%= f.label :first_name, "Nombre" %>
+		<%= f.text_field :first_name, :class => "form-control"  %>
+	  </div>
+	  <div class="form-group">
+		<%= f.label :last_name, "Apellido" %>
+		<%= f.text_field :last_name, :class => "form-control"   %>
+	  </div>
+	  <div class="form-group">
+		<%= f.label :email %>
+		<%= f.text_field :email, :class => "form-control"   %>
+	  </div>
+	  <div class="form-group">
+		<%= f.label :password, "Password" %>
+		<%= f.password_field :password, :class => "form-control"   %>
+	  </div>
+	  <div class="form-group">
+		<%= f.label :password_confirmation, "Repetir password" %>
+		<%= f.password_field :password_confirmation, :class => "form-control"   %>
+	  </div>
+	  <p class="button"><%= f.submit "Registrarse", :class => "btn btn-default" %></p>
+	<% end %>
+</div>
+
