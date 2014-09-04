@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @dinosaurio.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @dinosaurio.descripcion %>
+</p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @dinosaurio.periodo %>
+</p>
+
+<%= link_to 'Edit', edit_dinosaurio_path(@dinosaurio) %> |
+<%= link_to 'Back', dinosaurios_path %>

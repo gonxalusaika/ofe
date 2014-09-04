@@ -1,0 +1,29 @@
+<h1>Listing dinosaurios</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Periodo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dinosaurios.each do |dinosaurio| %>
+      <tr>
+        <td><%= dinosaurio.nombre %></td>
+        <td><%= dinosaurio.descripcion %></td>
+        <td><%= dinosaurio.periodo %></td>
+        <td><%= button_to 'Show', dinosaurio, method: :get, class: 'btn btn-default' %></td>
+        <td><%= button_to 'Edit', edit_dinosaurio_path(dinosaurio), method: :get, class: 'btn btn-default' %></td>
+        <td><%= button_to 'Destroy', dinosaurio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dinosaurio', new_dinosaurio_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@dinosaurio) do |f| %>
+  <% if @dinosaurio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dinosaurio.errors.count, "error") %> prohibited this dinosaurio from being saved:</h2>
+
+      <ul>
+      <% @dinosaurio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, class: "form-control"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion, class: "form-control"  %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :periodo %><br>
+    <%= f.text_field :periodo, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Registrar', class: "btn btn-default" %>
+  </div>
+<% end %>
