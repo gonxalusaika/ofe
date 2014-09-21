@@ -7,8 +7,16 @@
 
 <p>
   <strong>Preguntas:</strong>
-  <%= @cuestionario.preguntas %>
 </p>
+
+<% @cuestionario.preguntas.each do |pregunta| %>
+	<%=	pregunta.contenido %> <br>
+	<ul>
+		<% pregunta.respuestas.each_with_index do |respuesta, index| %>
+		<li <%= "style=color:green;" if respuesta.es_correcta %>><%= respuesta.contenido %></li>
+		<% end %>
+	</ul>
+<% end %>
 
 <%= link_to 'Edit', edit_cuestionario_path(@cuestionario) %> |
 <%= link_to 'Back', cuestionarios_path %>
