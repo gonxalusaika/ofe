@@ -1,0 +1,30 @@
+<%= form_for(@cuestionario) do |f| %>
+  <% if @cuestionario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cuestionario.errors.count, "error") %> prohibited this cuestionario from being saved:</h2>
+
+      <ul>
+      <% @cuestionario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, class: "form-control" %>
+  </div>
+  <h3>Preguntas</h3>
+  <div class="form-group">
+    <%= f.fields_for :preguntas do |p| %>
+      <%= render "pregunta_fields", :f => p %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Agregar pregunta', f, :preguntas %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Confirmar", class: "btn btn-default" %>
+  </div>
+<% end %>

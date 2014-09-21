@@ -1,0 +1,14 @@
+<%= f.text_field :contenido, class: "form-control" %><br>
+<div class="respuestas">
+	<% f.object.build_respuestas if f.object.id == nil %>
+	<div class="col-sm-offset-2 col-xs-offset-1 form-group">
+		<%= f.fields_for :respuestas, @pregunta do |r| %>
+			<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon">
+			<%= r.check_box :es_correcta %></div>
+			<%= r.text_field :contenido, class: "form-control" %></div>
+			</div>
+		<% end %>
+	</div>
+</div>

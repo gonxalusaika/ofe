@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'preguntas/new'
+
+  resources :cuestionarios
+
+  resources :periodos
+
   resources :dinosaurios
 
   resources :users
@@ -19,7 +25,8 @@ Rails.application.routes.draw do
   get "signup" => "users#new", :as => "signup"
 
   namespace :api do
-    resources :dinosaurios, :defaults => { :format => 'json' }
+    resources :dinosaurios, :defaults => { :format => 'xml' }
+    resources :periodos, :defaults => { :format => 'xml' }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

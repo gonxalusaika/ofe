@@ -21,7 +21,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :periodo %><br>
-    <%= f.text_field :periodo, class: "form-control" %>
+    <%= collection_select :dinosaurio, :periodo_id, Periodo.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
   </div>
   <div class="actions">
     <%= f.submit 'Registrar', class: "btn btn-default" %>

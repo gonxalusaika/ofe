@@ -12,7 +12,7 @@
 
 <p>
   <strong>Periodo:</strong>
-  <%= @dinosaurio.periodo %>
+  <%= @dinosaurio.periodo.nombre  unless @dinosaurio.periodo.nil? %>
 </p>
 
 <%= link_to 'Edit', edit_dinosaurio_path(@dinosaurio) %> |
