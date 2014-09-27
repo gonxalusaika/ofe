@@ -22,6 +22,7 @@ module Oculus
 	config.assets.paths << "#{Rails}/vendor/assets/fonts"
     config.generators.javascripts = false
     config.generators.stylesheets = false
+    config.serve_static_assets = true
 
   end
 end
