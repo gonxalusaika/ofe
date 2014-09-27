@@ -10,9 +10,6 @@
 </head>
 <body style="padding-top: 50px;">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="nabvar-header navbar-brand">
-			<%= link_to image_tag( "logo.png", size: "50%", style: "margin-top:-40px;margin-left:-30px;"), root_url %>
-		</div>
 	<div class="container">
 		<div class="nabvar-header navbar-brand">
 			<%= link_to "Oculus for Education", root_url %>
@@ -54,6 +51,9 @@
 		</ul>
 		</div>
 	</div>
+<div class="dino-logo">
+	<%= link_to image_tag( "logo.png", size: "50%"), root_url %>
+</div>
 </nav>
 <%= yield %>
 
