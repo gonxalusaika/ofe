@@ -1,4 +1,9 @@
-<h1>Listing dinosaurios</h1>
+<div class="container">
+<h1>Listing dinosaurios
+  <%= link_to new_dinosaurio_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-plus"></span> Nuevo
+  <%end%>
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -26,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Dinosaurio', new_dinosaurio_path %>
+</div>

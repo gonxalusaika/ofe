@@ -7,29 +7,33 @@
 			<li data-target="#carousel-home" data-slide-to="2"></li>
 		</ol>
   
-		<div class="item active">
-			<%= image_tag("carousel_2.jpg", class: "center-block", width:"1200") %>
+		<div class="item active fondo-carousel img-carousel-2">
 			<div class="carousel-caption">
-				<h3>Explora</h3>
+				<h1>Explora</h1>
 				<p>Participa de los recorridos virtuales y visita lugares tur&iacute;sticos e hist&oacute;ricos</p>
 			</div>
 		</div>
-		<div class="item">
-			<%= image_tag("carousel_3.jpg", class: "center-block", width:"1200") %>
+		<div class="item fondo-carousel img-carousel-3">
 			<div class="carousel-caption">
-				<h3>Aprende</h3>
+				<h1>Aprende</h1>
 				<p>Accede a las aulas virutales y aprende de una manera nunca antes vista</p>
 			</div>
 		</div>
-		<div class="item">
-			<%= image_tag("carousel_1.jpg", class: "center-block", width:"1200")%>
+		<div class="item fondo-carousel img-carousel-1">
 			<div class="carousel-caption">
-				<h3>Interact&uacute;a</h3>
+				<h1>Interact&uacute;a</h1>
 				<p>Utiliza la realidad virtual para sumergirte en nuevos mundos</p>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$('.carousel').carousel({
+		interval: 5000,
+		pause: false
+	});
+</script>
 
 <div class="container">
 	<div class="row">

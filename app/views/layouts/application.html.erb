@@ -2,16 +2,19 @@
 <html>
 <head>
   <title>Oculus</title>
+  <%= favicon_link_tag 'Oculus.png' %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body style="padding-top: 50px;">
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="nabvar-header navbar-brand">
+			<%= link_to image_tag( "logo.png", size: "50%", style: "margin-top:-40px;margin-left:-30px;"), root_url %>
+		</div>
 	<div class="container">
 		<div class="nabvar-header navbar-brand">
-			<%= link_to image_tag( "Oculus.png", size: "30"), root_url %>
 			<%= link_to "Oculus for Education", root_url %>
 		</div>
 			<button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -52,9 +55,7 @@
 		</div>
 	</div>
 </nav>
-<div class="container">
 <%= yield %>
-</div>
 
 </body>
 </html>

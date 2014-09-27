@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +16,6 @@
   <%= @dinosaurio.periodo.nombre  unless @dinosaurio.periodo.nil? %>
 </p>
 
-<%= link_to 'Edit', edit_dinosaurio_path(@dinosaurio) %> |
-<%= link_to 'Back', dinosaurios_path %>
+<%= link_to 'Editar', edit_dinosaurio_path(@dinosaurio) %> |
+<%= link_to 'Volver', dinosaurios_path %>
+</div>

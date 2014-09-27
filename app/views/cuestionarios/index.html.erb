@@ -1,4 +1,9 @@
-<h1>Listing cuestionarios</h1>
+<div class="container">
+<h1>Listado de cuestionarios
+  <%= link_to new_cuestionario_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-plus"></span> Nuevo
+  <%end%>
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -20,6 +25,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Cuestionario', new_cuestionario_path %>
+</div>
