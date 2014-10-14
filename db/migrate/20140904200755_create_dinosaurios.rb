@@ -3,7 +3,6 @@ class CreateDinosaurios < ActiveRecord::Migration
     create_table :dinosaurios do |t|
       t.string :nombre
       t.text :descripcion
-      t.string :periodo
 
       t.timestamps
     end

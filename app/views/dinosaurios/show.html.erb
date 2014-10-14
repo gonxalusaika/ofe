@@ -16,6 +16,12 @@
   <%= @dinosaurio.periodo.nombre  unless @dinosaurio.periodo.nil? %>
 </p>
 
+<p>
+	<strong>Icono</strong>
+	<%= image_tag @dinosaurio.icono.url %>
+	<%= @dinosaurio.pathImagen %>
+</p>
+
 <%= link_to 'Editar', edit_dinosaurio_path(@dinosaurio) %> |
 <%= link_to 'Volver', dinosaurios_path %>
 </div>

@@ -2,7 +2,7 @@ class Api::DinosauriosController < ApplicationController
 	def index
 		@dinosaurios = Dinosaurio.all
 		respond_to do |format|
-		    format.json { render json: @dinosaurios }
+		    format.json { render json: @dinosaurios.to_json(only: [:id, :nombre, :descripcion], :methods => :pathImagen) }
 		    format.xml { render xml: @dinosaurios }
 	    end
 	end

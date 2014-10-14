@@ -42,5 +42,11 @@ input[type="checkbox"]{
 .dino-logo{
 	position: absolute; 
 	margin-top:-70px;
-	margin-left:-70px;
+	margin-left:-75px;
+}
+
+.oculus-logo{
+	height: 25px;
+	width: 25px;
+	background: asset-data-url("Oculus.png");
 }

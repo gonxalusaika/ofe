@@ -2,6 +2,7 @@ class CreateRespuesta < ActiveRecord::Migration
   def change
     create_table :respuesta do |t|
       t.string :contenido
+      t.string :feedback
       t.boolean :es_correcta
       t.references :pregunta, index: true
 

@@ -7,7 +7,6 @@ class CreatePeriodos < ActiveRecord::Migration
       t.timestamps
     end
 
-    remove_column :dinosaurios, :periodo
     add_reference :dinosaurios, :periodo, index: true
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919190652) do
+ActiveRecord::Schema.define(version: 20141012184220) do
 
   create_table "cuestionarios", force: true do |t|
     t.string   "nombre"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 20140919190652) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "periodo_id"
+    t.string   "icono_file_name"
+    t.string   "icono_content_type"
+    t.integer  "icono_file_size"
+    t.datetime "icono_updated_at"
   end
 
   add_index "dinosaurios", ["periodo_id"], name: "index_dinosaurios_on_periodo_id"
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140919190652) do
 
   create_table "respuesta", force: true do |t|
     t.string   "contenido"
+    t.string   "feedback"
     t.boolean  "es_correcta"
     t.integer  "pregunta_id"
     t.datetime "created_at"

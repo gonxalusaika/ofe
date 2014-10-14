@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :nombre %><br>
+    <%= f.label :nombre %>
     <%= f.text_field :nombre, class: "form-control"  %>
   </div>
   <div class="field form-group">
-    <%= f.label :descripcion %><br>
+    <%= f.label :descripcion %>
     <%= f.text_area :descripcion, class: "form-control"  %>
   </div>
   <div class="field form-group">
-    <%= f.label :periodo %><br>
+    <%= f.label :periodo %>
     <%= collection_select :dinosaurio, :periodo_id, Periodo.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :icono %>
+    <%= f.file_field :icono %>
   </div>
   <div class="actions">
     <%= f.submit 'Registrar', class: "btn btn-default" %>

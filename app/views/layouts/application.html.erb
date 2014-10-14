@@ -11,7 +11,8 @@
 <body style="padding-top: 50px;">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
-		<div class="nabvar-header navbar-brand">
+		<div class="nabvar-header navbar-brand" >
+			<!-- <%= image_tag 'Oculus.png', size: "40x40", style: "top:-30px" %> -->
 			<%= link_to "Oculus for Education", root_url %>
 		</div>
 			<button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,12 +49,15 @@
 			<li>
 				<%= link_to "Cuestionarios", cuestionarios_path %>
 			</li>
+			<li>
+				<%= button_to "Estaciones", estaciones_path, method: :get, class: 'link-trucho' %>
+			</li>
 		</ul>
 		</div>
 	</div>
-<div class="dino-logo">
-	<%= link_to image_tag( "logo.png", size: "50%"), root_url %>
-</div>
+	<div class="dino-logo hidden-sm hidden-xs">
+		<%= link_to image_tag( "logo.png", size: "50%"), root_url %>
+	</div>
 </nav>
 <%= yield %>
 

@@ -42,3 +42,4 @@ gem 'pg', group: :production
 
 gem 'cocoon'
 gem 'quiet_assets', group: :development
+gem 'paperclip', "~> 3.5.3"

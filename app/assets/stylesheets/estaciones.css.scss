@@ -1,0 +1,66 @@
+// Place all the styles related to the Estaciones controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.mapa-estaciones{
+	background: asset-data-url("mapa.jpg");
+	margin-right: auto;
+	margin-left: auto;
+	width:427px;
+	height:500px;
+	background-size: 427px 500px;
+	position:relative;
+}
+
+.estacion1{
+	position:absolute;
+	bottom: 60px;
+	left: 170px;
+}
+.estacion2{
+	position:absolute;
+	bottom: 140px;
+	left: 200px;
+}
+.estacion3{
+	position:absolute;
+	bottom: 190px;
+	left: 140px;
+}
+.estacion4{
+	position:absolute;
+	bottom: 250px;
+	left: 100px;
+}
+.estacion5{
+	position:absolute;
+	bottom: 360px;
+	left: 130px;
+}
+.opciones-dinosaurios{
+	overflow: auto;
+	padding: 18px;
+	height: 500px;
+	background: rgba(80,10,178, .5);
+	border-radius: 5px
+}
+.opcion-lista{
+	border: 1px solid #333;
+	padding: 5px;
+	margin: 5px;
+	background: white;
+	transition: transform .2s;
+}
+.opcion-lista:hover{
+	transform: scale(1.05);
+}
+.seleccionado{
+	background: #E7D8F3;
+}
+.link-trucho{
+	background: none;
+	border:none;
+	color: #eeeeee;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-weight: bold;
+}

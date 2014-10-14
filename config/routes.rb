@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'estaciones' => 'estaciones#index'
+
   get 'preguntas/new'
 
   resources :cuestionarios
