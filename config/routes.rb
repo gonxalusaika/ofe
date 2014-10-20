@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'estaciones' => 'estaciones#index'
+
+  apipie
+  get 'recorridos' => 'recorridos#index'
+  get 'recorridos/new' => 'recorridos#new', as: 'new_recorrido'
+  get 'recorridos/:id' => 'recorridos#show', as: 'recorrido'
 
   get 'preguntas/new'
 
@@ -31,6 +35,10 @@ Rails.application.routes.draw do
     get "periodos" => "periodos#index", :defaults => { :format => 'xml' }
     get "cuestionarios" => "cuestionarios#index", :defaults => { :format => 'xml' }
     get "cuestionarios/:id" => "cuestionarios#show", :defaults => { :format => 'xml' }
+
+    get 'recorridos' => "recorridos#index", defaults: {format: 'xml'}
+    get 'recorridos/:id' => "recorridos#show", defaults: {format: 'xml'}
+    post 'recorridos/create' => "recorridos#create", defaults: {format: 'xml'}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

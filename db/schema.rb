@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012184220) do
+ActiveRecord::Schema.define(version: 20141015235621) do
 
   create_table "cuestionarios", force: true do |t|
     t.string   "nombre"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 20141012184220) do
 
   add_index "dinosaurios", ["periodo_id"], name: "index_dinosaurios_on_periodo_id"
 
+  create_table "estacions", force: true do |t|
+    t.integer  "indice"
+    t.integer  "dinosaurio_id"
+    t.integer  "preguntas_id"
+    t.integer  "recorrido_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "estacions", ["dinosaurio_id"], name: "index_estacions_on_dinosaurio_id"
+  add_index "estacions", ["preguntas_id"], name: "index_estacions_on_preguntas_id"
+  add_index "estacions", ["recorrido_id"], name: "index_estacions_on_recorrido_id"
+
   create_table "periodos", force: true do |t|
     t.string   "nombre"
     t.text     "descripcion"
@@ -51,6 +64,15 @@ ActiveRecord::Schema.define(version: 20141012184220) do
   end
 
   add_index "pregunta", ["cuestionario_id"], name: "index_pregunta_on_cuestionario_id"
+
+  create_table "recorridos", force: true do |t|
+    t.string   "nombre"
+    t.integer  "estacions_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recorridos", ["estacions_id"], name: "index_recorridos_on_estacions_id"
 
   create_table "respuesta", force: true do |t|
     t.string   "contenido"

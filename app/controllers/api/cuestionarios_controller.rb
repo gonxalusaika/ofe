@@ -1,4 +1,7 @@
 class Api::CuestionariosController < ApplicationController
+	
+	api :GET, '/cuestionarios', "Lista todos los cuestionarios"
+	formats ['json']
 	def index
 		@cuestionarios = Cuestionario.all
 		respond_to do |format|

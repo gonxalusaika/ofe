@@ -1,0 +1,8 @@
+<div class="container">
+	<h1><%= @recorrido.nombre %></h1>
+	<ul>
+		<% @recorrido.estacions.each do |estacion| %>
+		<li> <%= estacion.indice %> - <%= estacion.dinosaurio.nombre %> </li>
+		<% end %>
+	</ul>
+</div>

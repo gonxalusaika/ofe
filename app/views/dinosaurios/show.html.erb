@@ -21,6 +21,10 @@
 	<%= image_tag @dinosaurio.icono.url %>
 	<%= @dinosaurio.pathImagen %>
 </p>
+<p>
+	<strong>Wrap</strong>
+	<%= @dinosaurio.descProcesada %>
+</p>
 
 <%= link_to 'Editar', edit_dinosaurio_path(@dinosaurio) %> |
 <%= link_to 'Volver', dinosaurios_path %>

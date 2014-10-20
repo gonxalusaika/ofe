@@ -21,6 +21,7 @@ module Oculus
     # config.i18n.default_locale = :de
 	config.assets.paths << "#{Rails}/vendor/assets/fonts"
     config.serve_static_assets = true
+    ActiveSupport.escape_html_entities_in_json = true 
 
   end
 end
