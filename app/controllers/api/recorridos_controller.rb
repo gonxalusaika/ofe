@@ -48,7 +48,12 @@ class Api::RecorridosController < ApplicationController
 
 	private
 		def relaciones_incluye
-			{:estacions => {include: {:dinosaurio => { only: [:id, :nombre, :descripcion]}}, only: [:id, :indice]}}
+			{:estacions => {
+				include: {
+					:dinosaurio => { only: [:id, :nombre, :descripcion]}, 
+					:preguntas => {include: {:respuestas => {only: [:id, :contenido, :es_correcta]}}, only: [:id, :contenido]}
+					},	
+				only: [:id, :indice]}}
 		end
 
 		def params_exportar
@@ -56,6 +61,9 @@ class Api::RecorridosController < ApplicationController
 		end
 
 		def recorrido_params
-			params.require(:recorrido).permit(:nombre, :estacions_attributes => [:id, :indice, :dinosaurio_id])
+			params.require(:recorrido).permit(:nombre, 
+				:estacions_attributes => 
+						[:id, :indice, :dinosaurio_id, {:pregunta_ids => []}]
+				)
 		end
 end

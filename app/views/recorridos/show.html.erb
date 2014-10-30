@@ -1,8 +1,21 @@
 <div class="container">
 	<h1><%= @recorrido.nombre %></h1>
-	<ul>
 		<% @recorrido.estacions.each do |estacion| %>
-		<li> <%= estacion.indice %> - <%= estacion.dinosaurio.nombre %> </li>
+		<div class="opcion-lista">
+		<img src="<%= estacion.dinosaurio.icono.url %>" class="pull-right" style="max-width: 50px; max-height: 50px" />
+		<h3>Estacion <%= estacion.indice %> - <%= estacion.dinosaurio.nombre unless estacion.dinosaurio.nil? %> </h3>
+		<ul>
+			<% estacion.preguntas.each do |pregunta| %>
+				<li><b><%= pregunta.contenido %></b>
+					<ul>
+					<% pregunta.respuestas.each do |respuesta| %>
+						<li><%= respuesta.contenido %> </li>
+					<% end %>
+					</ul>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 		<% end %>
 	</ul>
 </div>

@@ -1,0 +1,38 @@
+<%= form_for(@pregunta) do |f| %>
+  <% if @pregunta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pregunta.errors.count, "error") %> prohibited this pregunta from being saved:</h2>
+
+      <ul>
+      <% @pregunta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :contenido %>
+    <%= f.text_field :contenido, class: "form-control" %><br>
+  </div>
+  <div class="field form-group">
+    <%= f.label :dinosaurio %>
+    <%= collection_select :pregunta, :dinosaurio_id, Dinosaurio.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
+  </div>
+  <div class="respuestas">
+    <% f.object.build_respuestas if f.object.id == nil %>
+    <div class="col-sm-offset-2 col-xs-offset-1 form-group">
+      <%= f.fields_for :respuestas, @pregunta.respuestas do |r| %>
+        <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">
+        <%= r.check_box :es_correcta %></div>
+        <%= r.text_field :contenido, class: "form-control" %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Confirmar", class: "btn btn-default" %>
+  </div>
+<% end %>

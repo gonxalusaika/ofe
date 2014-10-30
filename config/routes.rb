@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'preguntas/index'
+
   apipie
   get 'recorridos' => 'recorridos#index'
   get 'recorridos/new' => 'recorridos#new', as: 'new_recorrido'
   get 'recorridos/:id' => 'recorridos#show', as: 'recorrido'
+  delete 'recorridos/:id' => 'recorridos#destroy'
 
-  get 'preguntas/new'
-
-  resources :cuestionarios
+  resources :preguntas
 
   resources :periodos
 
@@ -31,14 +32,15 @@ Rails.application.routes.draw do
   get "signup" => "users#new", :as => "signup"
 
   namespace :api do
-    get "dinosaurios" => "dinosaurios#index", :defaults => { :format => 'xml' }
-    get "periodos" => "periodos#index", :defaults => { :format => 'xml' }
-    get "cuestionarios" => "cuestionarios#index", :defaults => { :format => 'xml' }
-    get "cuestionarios/:id" => "cuestionarios#show", :defaults => { :format => 'xml' }
+    get "dinosaurios" => "dinosaurios#index", :defaults => { :format => 'json' }
+    get "periodos" => "periodos#index", :defaults => { :format => 'json' }
+    get "cuestionarios" => "cuestionarios#index", :defaults => { :format => 'json' }
+    get "cuestionarios/:id" => "cuestionarios#show", :defaults => { :format => 'json' }
 
-    get 'recorridos' => "recorridos#index", defaults: {format: 'xml'}
-    get 'recorridos/:id' => "recorridos#show", defaults: {format: 'xml'}
-    post 'recorridos/create' => "recorridos#create", defaults: {format: 'xml'}
+    get 'recorridos' => "recorridos#index", defaults: {format: 'json'}
+    get 'preguntas' => "preguntas#index", defaults: {format: 'json'}
+    get 'recorridos/:id' => "recorridos#show", defaults: {format: 'json'}
+    post 'recorridos/create' => "recorridos#create", defaults: {format: 'json'}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

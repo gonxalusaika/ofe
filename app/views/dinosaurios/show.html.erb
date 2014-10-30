@@ -1,5 +1,5 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<p id="notice" class="bg-success"><%= notice %></p>
 
 <p>
   <strong>Nombre:</strong>
@@ -18,12 +18,8 @@
 
 <p>
 	<strong>Icono</strong>
-	<%= image_tag @dinosaurio.icono.url %>
+	<img src="<%= @dinosaurio.icono.url %>" />
 	<%= @dinosaurio.pathImagen %>
-</p>
-<p>
-	<strong>Wrap</strong>
-	<%= @dinosaurio.descProcesada %>
 </p>
 
 <%= link_to 'Editar', edit_dinosaurio_path(@dinosaurio) %> |

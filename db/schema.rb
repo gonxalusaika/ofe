@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015235621) do
+ActiveRecord::Schema.define(version: 20141022222006) do
 
   create_table "cuestionarios", force: true do |t|
     t.string   "nombre"
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(version: 20141015235621) do
   add_index "estacions", ["preguntas_id"], name: "index_estacions_on_preguntas_id"
   add_index "estacions", ["recorrido_id"], name: "index_estacions_on_recorrido_id"
 
+  create_table "estacions_preguntas", force: true do |t|
+    t.integer "estacion_id"
+    t.integer "pregunta_id"
+  end
+
   create_table "periodos", force: true do |t|
     t.string   "nombre"
     t.text     "descripcion"
@@ -56,14 +61,16 @@ ActiveRecord::Schema.define(version: 20141015235621) do
     t.datetime "updated_at"
   end
 
-  create_table "pregunta", force: true do |t|
+  create_table "preguntas", force: true do |t|
     t.string   "contenido"
     t.integer  "cuestionario_id"
+    t.integer  "dinosaurio_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "pregunta", ["cuestionario_id"], name: "index_pregunta_on_cuestionario_id"
+  add_index "preguntas", ["cuestionario_id"], name: "index_preguntas_on_cuestionario_id"
+  add_index "preguntas", ["dinosaurio_id"], name: "index_preguntas_on_dinosaurio_id"
 
   create_table "recorridos", force: true do |t|
     t.string   "nombre"
@@ -74,7 +81,7 @@ ActiveRecord::Schema.define(version: 20141015235621) do
 
   add_index "recorridos", ["estacions_id"], name: "index_recorridos_on_estacions_id"
 
-  create_table "respuesta", force: true do |t|
+  create_table "respuestas", force: true do |t|
     t.string   "contenido"
     t.string   "feedback"
     t.boolean  "es_correcta"
@@ -83,7 +90,7 @@ ActiveRecord::Schema.define(version: 20141015235621) do
     t.datetime "updated_at"
   end
 
-  add_index "respuesta", ["pregunta_id"], name: "index_respuesta_on_pregunta_id"
+  add_index "respuestas", ["pregunta_id"], name: "index_respuestas_on_pregunta_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

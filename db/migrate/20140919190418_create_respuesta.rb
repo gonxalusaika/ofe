@@ -1,6 +1,6 @@
 class CreateRespuesta < ActiveRecord::Migration
   def change
-    create_table :respuesta do |t|
+    create_table :respuestas do |t|
       t.string :contenido
       t.string :feedback
       t.boolean :es_correcta

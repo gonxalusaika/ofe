@@ -55,3 +55,46 @@ input[type="checkbox"]{
 	max-width: 50px;
 	max-height: 50px;
 }
+
+body{
+	font-family: 'Varela Round';
+}
+
+.loader {
+	margin-top: 10px;
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+  -webkit-animation: spin 700ms infinite linear;
+  -moz-animation: spin 700ms infinite linear;
+  -ms-animation: spin 700ms infinite linear;    
+  animation: spin 700ms infinite linear;
+}
+@-ms-keyframes spin {
+    0% { -ms-transform: rotate(-10deg); }
+    50% { -ms-transform: rotate(10deg); }
+    100% { -ms-transform: rotate(-10deg); }
+}
+@-moz-keyframes spin {
+    0% { -moz-transform: rotate(-10deg); }
+    50% { -moz-transform: rotate(10deg); }
+    100% { -moz-transform: rotate(-10deg); }
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(-10deg); }
+    50% { -webkit-transform: rotate(10deg); }
+    100% { -webkit-transform: rotate(-10deg); }
+}
+@keyframes spin {
+    0% { transform:rotate(-10deg); }
+    50% { transform:rotate(10deg); }
+    100% { transform:rotate(-10deg); }
+}
+
+body .modal-dialog {
+    /* new custom width */
+    width: 70%;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    /*margin-left: -280px;*/
+}

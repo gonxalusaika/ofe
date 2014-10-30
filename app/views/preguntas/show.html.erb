@@ -1,0 +1,18 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+
+<p>
+	<b>Contenido:</b>
+	<%=	@pregunta.contenido %> <br>
+</p>
+<p><b>Respuestas:</b></p>
+<ul>
+	<% @pregunta.respuestas.each_with_index do |respuesta, index| %>
+	<li <%= "style=color:green;" if respuesta.es_correcta %>><%= respuesta.contenido %></li>
+	<% end %>
+</ul>
+
+<%= link_to 'Editar', edit_pregunta_path(@pregunta) %> |
+<%= link_to 'Volver', preguntas_path %>
+</div>

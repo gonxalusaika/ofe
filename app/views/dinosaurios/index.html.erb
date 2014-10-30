@@ -21,9 +21,21 @@
         <td><%= dinosaurio.nombre %></td>
         <td><%= dinosaurio.descripcion %></td>
         <td><%= dinosaurio.periodo.nombre unless dinosaurio.periodo.nil? %></td>
-        <td><%= button_to 'Show', dinosaurio, method: :get, class: 'btn btn-default' %></td>
-        <td><%= button_to 'Edit', edit_dinosaurio_path(dinosaurio), method: :get, class: 'btn btn-default' %></td>
-        <td><%= button_to 'Destroy', dinosaurio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
+        <td>
+        <%= button_to dinosaurio, method: :get, class: 'btn btn-default' do %>
+            <i class="glyphicon glyphicon-eye-open"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to edit_dinosaurio_path(dinosaurio), method: :get, class: 'btn btn-default' do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to dinosaurio, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+            <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
