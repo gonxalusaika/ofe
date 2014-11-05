@@ -19,6 +19,20 @@ class Api::RecorridosController < ApplicationController
 		end
 	end
 
+	api :GET, "/recorridos/random", 'Retorna un recorrido aleatorio'
+	def random
+		offset = rand(Recorrido.count)
+		@recorrido = Recorrido.offset(offset).first
+		respond_to do |format|
+			format.json { 
+				json = @recorrido.to_json(include: relaciones_incluye, only: params_exportar)
+		    	json.gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
+		    	render json:  json
+			}
+			format.xml {render xml: @recorrido.to_xml(include: relaciones_incluye, only: params_exportar)}
+		end
+	end
+
 	api :POST, "/recorridos/new", 'Crea un recorrido nuevo'
 	# param :recorrido, Hash, required: true do
 	# 	param :nombre, String, required: true
@@ -46,11 +60,22 @@ class Api::RecorridosController < ApplicationController
 		# render json: @recorrido
 	end
 
+	def update
+		puts params.to_json
+		@recorrido = Recorrido.find(params[:id])
+		if @recorrido.update(recorrido_params)
+				render json: @recorrido
+		else
+			render json: @recorrido.errors
+		end
+	end
+
+
 	private
 		def relaciones_incluye
 			{:estacions => {
 				include: {
-					:dinosaurio => { only: [:id, :nombre, :descripcion]}, 
+					:dinosaurio => { only: [:id, :nombre], methods: :descProcesada}, 
 					:preguntas => {include: {:respuestas => {only: [:id, :contenido, :es_correcta]}}, only: [:id, :contenido]}
 					},	
 				only: [:id, :indice]}}
@@ -61,7 +86,7 @@ class Api::RecorridosController < ApplicationController
 		end
 
 		def recorrido_params
-			params.require(:recorrido).permit(:nombre, 
+			params.require(:recorrido).permit(:id, :nombre, 
 				:estacions_attributes => 
 						[:id, :indice, :dinosaurio_id, {:pregunta_ids => []}]
 				)

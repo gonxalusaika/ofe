@@ -17,8 +17,13 @@ class RecorridosController < ApplicationController
   end
 
   def show
-    @recorrido = Recorrido.find(params[:id])
   end
+
+  def edit
+    @dinosaurios = Dinosaurio.all
+    @preguntas = Pregunta.all
+  end
+
 
   private
     def set_recorrido

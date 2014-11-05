@@ -3,16 +3,17 @@ Rails.application.routes.draw do
   get 'preguntas/index'
 
   apipie
-  get 'recorridos' => 'recorridos#index'
-  get 'recorridos/new' => 'recorridos#new', as: 'new_recorrido'
-  get 'recorridos/:id' => 'recorridos#show', as: 'recorrido'
-  delete 'recorridos/:id' => 'recorridos#destroy'
+  # get 'recorridos' => 'recorridos#index'
+  # get 'recorridos/new' => 'recorridos#new', as: 'new_recorrido'
+  # get 'recorridos/:id' => 'recorridos#show', as: 'recorrido'
+  # delete 'recorridos/:id' => 'recorridos#destroy'
 
   resources :preguntas
 
   resources :periodos
 
   resources :dinosaurios
+  resources :recorridos
 
   resources :users
   resources :sessions
@@ -39,8 +40,10 @@ Rails.application.routes.draw do
 
     get 'recorridos' => "recorridos#index", defaults: {format: 'json'}
     get 'preguntas' => "preguntas#index", defaults: {format: 'json'}
+    get 'recorridos/random' => "recorridos#random", defaults: {format: 'json'}
     get 'recorridos/:id' => "recorridos#show", defaults: {format: 'json'}
     post 'recorridos/create' => "recorridos#create", defaults: {format: 'json'}
+    post 'recorridos/update' => "recorridos#update", defaults: {format: 'json'}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
