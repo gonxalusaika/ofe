@@ -6,6 +6,8 @@ class RecorridosController < ApplicationController
   end
 
   def new
+    @dinosaurios = Dinosaurio.all
+    @preguntas = Pregunta.all
   end
 
   def destroy

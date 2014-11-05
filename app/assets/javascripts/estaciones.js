@@ -89,7 +89,7 @@ var app = angular.module('EstacionesMngr', ['ngResource','ui.bootstrap'])
 			$scope.preguntas = preguntas;
 			dinosaurios = undefined;
 			preguntas = undefined;
-			if(recorrido != undefined){
+			if(typeof recorrido !== 'undefined'){
 				$scope.recorrido = {id: recorrido.id, nombre: recorrido.nombre, estaciones: [] };
 				for(var i=0; i<recorrido.estacions.length; i++){
 					var dinosaurio = $.grep($scope.dinosaurios, function(dino){

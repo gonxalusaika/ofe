@@ -15,13 +15,12 @@
 		<div class="col-md-4" >
 			
 			<div class="opciones-dinosaurios">
-				<div class="opcion-lista" ng-repeat="dinosaurio in dinosaurios"  draggable="true">
+				<div class="panel" ng-repeat="estacion in recorrido.estaciones"  draggable="true">
 					
-					<p class="pull-right">{{estacion.dinosaurio.nombre}}</p>
-						<img ng-src="{{dinosaurio.pathImagen}}" class="pull-right img-dinosaurio" />
-					<h3>{{dinosaurio.nombre}} 
-					</h3>
-					<p><small>{{dinosaurio.descripcion | truncar}} </small></p>
+					<h4>{{estacion.nombre}}</h4>
+					<img ng-src="{{estacion.dinosaurio.pathImagen}}" class="pull-right img-dinosaurio" />
+					<p><b>Dinosaurio: </b>{{estacion.dinosaurio.nombre}}</p>
+					<p><small>Preguntas: {{estacion.preguntas.length}}</small></p>
 				</div>
 			</div>
 		</div>
