@@ -40,5 +40,9 @@
 </table>
 
 <br>
+<% @recorridos.each do |recorrido| %>
+<%= "#{recorrido.fecha_creacion} - #{recorrido.nombre}" %>
+<br>
+<% end %>
 
 </div>

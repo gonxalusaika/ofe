@@ -16,6 +16,8 @@ stygimoloch 	= Dinosaurio.create(nombre: "Stygimoloch", 	periodo: cretacico, ico
 styracosaurus = Dinosaurio.create(nombre: "Styracosaurus",periodo: cretacico, icono: icono("styracosaurus"),descripcion: " Los Styracosaurus tenían cuatro piernas robustas y una cola corta. El cráneo tenía un pico y molares de corte alineadas en baterías dentales continuas, lo que sugiere que este animal cortaba las plantas en rodajas.")
 tapejara 			= Dinosaurio.create(nombre: "Tapejara", 		periodo: cretacico, icono: icono("tapejara"), 		descripcion: "Tapejara vivía en la orilla de los lagos o en islas interiores, y es probable que fueran voladores lentos y no recorriesen grandes distancias. Se alimentaban fundamentalmente de peces.")
 tyrannosaurus = Dinosaurio.create(nombre: "Tyrannosaurus",periodo: cretacico, icono: icono("tyrannosaurus"),descripcion: "Con relación con sus largos y poderosos miembros traseros, los miembros superiores del Tyrannosaurus eran pequeños, pero inusualmente fuertes para su tamaño, y terminaban en dos dedos con garras.")
+tyrannosaurus = Dinosaurio.create(nombre: "Cryolophosaurus",periodo: jurasico, icono: icono("cryolophosaurus"),descripcion: "")
+tyrannosaurus = Dinosaurio.create(nombre: "Bracciosaurus",periodo: jurasico, icono: icono("cryolophosaurus"),descripcion: "")
 
 
 Pregunta.create(contenido: "Pregunta sobre el Ankylosaurus", 					dinosaurio: ankylosaurus, 	respuestas: Respuesta.create([{contenido: "Respuesta 1", es_correcta: true },{contenido:"Respuesta 2", es_correcta: false},{contenido:"Respuesta 3", es_correcta: false},{contenido:"Respuesta 4", es_correcta: false}]))

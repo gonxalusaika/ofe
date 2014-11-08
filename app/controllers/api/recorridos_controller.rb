@@ -4,8 +4,8 @@ class Api::RecorridosController < ApplicationController
   def index
 		@recorridos = Recorrido.all
 		respond_to do |format|
-			format.json { render json: @recorridos.to_json(only: params_exportar)}
-			format.xml {render xml: @recorridos.to_xml(only: params_exportar)}
+			format.json { render json: @recorridos.to_json(only: params_exportar, methods: [:fecha_creacion])}
+			format.xml  { render xml: @recorridos.to_xml(only: params_exportar, methods: [:fecha_creacion])}
 		end
 	end
 
