@@ -1,11 +1,9 @@
 <%= form_for(@dinosaurio) do |f| %>
   <% if @dinosaurio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dinosaurio.errors.count, "error") %> prohibited this dinosaurio from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% @dinosaurio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @dinosaurio.errors.each_with_index do |message, i| %>
+        <li><%= message[1] %></li>
       <% end %>
       </ul>
     </div>

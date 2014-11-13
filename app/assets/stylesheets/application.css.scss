@@ -14,6 +14,8 @@
  *= require_tree .
  *= require_self
  */
+
+
 @font-face {
     font-family: 'Glyphicons Halflings';
     src: url(font-path('glyphicons-halflings-regular.eot') + "?#iefix") format('embedded-opentype'),
@@ -97,4 +99,66 @@ body .modal-dialog {
     width: 70%;
     /* must be half of the width, minus scrollbar on the left (30px) */
     /*margin-left: -280px;*/
+}
+
+.info-inicio{
+  padding: 10px;
+  margin: 20px;
+  line-height: 20px;
+  color: white;
+  position: relative;
+  background: #740ac6;
+}
+
+.info-inicio h2{
+  font-size: 30px;
+}
+
+.info-inicio p{
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.table{
+  background: rgba(255,255,255, 0.7);
+}
+
+svg{
+  margin-bottom: -6px;
+}
+.decor {
+  fill: #880ce8;
+  stroke: none;
+  z-index: 1000;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+.social-icons a{
+  background: white;
+}
+
+ul.inline{
+  margin-left:0;
+  padding-left:0;
+  list-style-type: decimal;
+}
+ul.inline li{
+  display:inline-block;
+  padding:0 5px
+}
+
+.navbar-inverse{
+  border: none;
+  margin-bottom: 0;
+}
+
+.boton-social{
+  font-size: 36px;
+  width: 72px;
+  height: 72px;
+  line-height: 72px;
+  border-radius: 100%;
+  background-color: white;
+  display: block;
 }

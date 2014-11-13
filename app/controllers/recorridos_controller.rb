@@ -1,4 +1,7 @@
 class RecorridosController < ApplicationController
+  include ApplicationHelper
+  before_filter :authenticate
+  
   before_action :set_recorrido, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -1,4 +1,6 @@
 class DinosauriosController < ApplicationController
+  include ApplicationHelper
+  before_filter :authenticate
   before_action :set_dinosaurio, only: [:show, :edit, :update, :destroy]
 
   # GET /dinosaurios
@@ -71,4 +73,5 @@ class DinosauriosController < ApplicationController
     def dinosaurio_params
       params.require(:dinosaurio).permit(:nombre, :descripcion, :icono, :periodo_id)
     end
+
 end

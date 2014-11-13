@@ -1,4 +1,7 @@
 class PreguntasController < ApplicationController
+  include ApplicationHelper
+  before_filter :authenticate
+  
   before_action :set_pregunta, only: [:show, :edit, :update, :destroy]
 
   # GET /preguntas

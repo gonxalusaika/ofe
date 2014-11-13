@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+	include ApplicationHelper
+  before_filter :authenticate
+  
  def new
   @user = User.new
   end

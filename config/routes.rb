@@ -23,11 +23,12 @@ Rails.application.routes.draw do
   get "browse/message"
   get "browse/aboutus"
 
+  get "admin" => "admin#index"
 
   #Sessions Users
   get "logout_user" => "sessions#destroy", :as => "logout_user"
   post "login_user" => "sessions#new", :as => "login_user"
- 
+  
 
  #Users
   get "signup" => "users#new", :as => "signup"

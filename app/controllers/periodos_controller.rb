@@ -1,4 +1,7 @@
 class PeriodosController < ApplicationController
+  include ApplicationHelper
+  before_filter :authenticate
+  
   before_action :set_periodo, only: [:show, :edit, :update, :destroy]
 
   # GET /periodos

@@ -1,5 +1,9 @@
 class CuestionariosController < ApplicationController
+  include ApplicationHelper
+  before_filter :authenticate
+  
   before_action :set_cuestionario, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /cuestionarios
   # GET /cuestionarios.json
