@@ -1,9 +1,15 @@
 <div class="container">
-<h1>Listing dinosaurios
+<h1>    
+  <%= link_to :admin, class: "pull-right btn btn-default" do %>
+    <span class="fa fa-cogs"></span>
+    Administración
+  <% end %>
+  Listing dinosaurios
   <%= button_to new_dinosaurio_path, method: :get, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-plus"></span> Nuevo
   <%end%>
 </h1>
+
 
 <table class="table table-striped">
   <thead>

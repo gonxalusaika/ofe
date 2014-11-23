@@ -1,3 +1,43 @@
 // Place all the styles related to the browse controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.info-inicio{
+  margin-top:     50px;
+  margin-bottom:  50px;
+}
+.info-inicio h2{
+  font-size: 30px;
+  color: #880ce8;
+}
+
+.info-inicio p{
+  font-size: 17px;
+  line-height: 25px;
+}
+
+
+svg{
+  margin-bottom: -6px;
+}
+.decor {
+  fill: #880ce8;
+  stroke: none;
+  z-index: 1000;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+.social-icons a{
+  background: white;
+}
+
+ul.inline{
+  margin-left:0;
+  padding-left:0;
+  list-style-type: decimal;
+}
+ul.inline li{
+  display:inline-block;
+  padding:0 5px
+}

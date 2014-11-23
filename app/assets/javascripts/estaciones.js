@@ -111,16 +111,19 @@ var app = angular.module('EstacionesMngr', ['ngResource','ui.bootstrap'])
 				$scope.recorrido = {nombre: ""};
 				$scope.recorrido.estaciones = [
 					{nombre: "Estacion 1", codigo: 1, preguntas: []},
-					{nombre: "Estacion 2", codigo: 2, preguntas: []},
-					{nombre: "Estacion 3", codigo: 3, preguntas: []},
-					{nombre: "Estacion 4", codigo: 4, preguntas: []},
-					{nombre: "Estacion 5", codigo: 5, preguntas: []},
+					{nombre: "Estacion 2", codigo: 3, preguntas: []},
+					{nombre: "Estacion 3", codigo: 4, preguntas: []},
+					{nombre: "Estacion 4", codigo: 6, preguntas: []},
+					{nombre: "Estacion 5", codigo: 17, preguntas: []},
+					{nombre: "Estacion 6", codigo: 20, preguntas: []},
+					{nombre: "Estacion 7", codigo: 5, preguntas: []},
+					{nombre: "Estacion 8", codigo: 2, preguntas: []}
 					];
 			}
 		}
 		$scope.inicializarRecorrido();
 	}]);
 
-	function caete(ev) {
-	    ev.preventDefault();
-	}
+function caete(ev) {
+    ev.preventDefault();
+}

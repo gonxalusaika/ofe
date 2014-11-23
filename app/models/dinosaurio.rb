@@ -3,21 +3,29 @@ class Dinosaurio < ActiveRecord::Base
 
 	belongs_to :periodo
 	has_many :preguntas
+	has_many :descripciones
+
+	accepts_nested_attributes_for :descripciones
 
 	has_attached_file :icono, default_url: ActionController::Base.helpers.asset_path('dino-icon.jpg'),
 		storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml")
 
 	validates :nombre, presence: {message: "El nombre no puede ser vacio"}
-	validates :descripcion, presence: {message: "Debe haber una descripcion"}
 	validates_attachment :icono,
-  		:content_type => { :content_type => ["image/jpeg", "image/gif", "image/png", /\Avideo/] }
+  		:content_type => { :content_type => [/\Aimage/, /\Avideo/] }
 
 	def pathImagen
-		self.icono.url unless self.icono.nil?
+		cachear_url_icono if self.url_icono.nil?
+		self.url_icono
 	end
 
 	def descProcesada
 		sentence = word_wrap(self.descripcion, line_width: 80)
 		sentence.gsub(/\n/, '<br>')
 	end
+
+	private
+		def cachear_url_icono
+			self.url_icono = self.icono.url unless self.icono.nil?
+		end
 end

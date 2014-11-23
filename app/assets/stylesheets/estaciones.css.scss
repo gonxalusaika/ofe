@@ -2,39 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .mapa-estaciones{
-	background: asset-data-url("mapa.jpg");
+	background: asset-data-url("mapa_recorrido.jpg");
 	margin-right: auto;
 	margin-left: auto;
-	width:427px;
-	height:500px;
-	background-size: 427px 500px;
+	width:814px;
+	height:504px;
+	background-size: 814 504px;
 	position:relative;
 }
 
 .estacion1{
 	position:absolute;
-	bottom: 60px;
-	left: 170px;
+	top: 180px;
+	left: 235px;
 }
 .estacion2{
 	position:absolute;
-	bottom: 140px;
-	left: 200px;
+	top: 285px;
+	left: 235px;
 }
 .estacion3{
 	position:absolute;
-	bottom: 190px;
-	left: 140px;
+	top: 285px;
+	left: 350px;
 }
 .estacion4{
 	position:absolute;
-	bottom: 250px;
-	left: 100px;
+	top: 285px;
+	left: 475px;
 }
 .estacion5{
 	position:absolute;
-	bottom: 360px;
-	left: 130px;
+	top: 285px;
+	left: 600px;
+}
+.estacion6{
+	position:absolute;
+	top: 180px;
+	left: 600px;
+}
+.estacion7{
+	position:absolute;
+	top: 180px;
+	left: 475px;
+}
+.estacion8{
+	position:absolute;
+	top: 180px;
+	left: 350px;
 }
 .opciones-dinosaurios{
 	overflow: auto;

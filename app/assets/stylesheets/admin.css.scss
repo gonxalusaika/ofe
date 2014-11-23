@@ -1,3 +1,59 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.opcion-admin{
+	background: white;
+	border-radius: 10px;
+	padding: 20px !important;
+	margin: 15px;
+	transition: transform .2s;
+}
+
+.opcion-admin:hover{
+	transform: scale(1.1);
+}
+
+.icon-admin{
+	font-size: 100px;
+}
+
+/**
+* Menu lateral
+**/
+.menu-lateral-admin{
+	list-style: none;
+	position:fixed;
+	left:0;
+	top: 25%;
+	padding: 0;
+	z-index: 1000;
+}
+
+.menu-lateral-admin li{
+	background-color: white;
+	padding: 5px;
+	color: rgb(136, 12, 232);
+	border: solid 1px #ddd;
+}
+.menu-lateral-admin a{
+	position: relative;
+}
+.menu-lateral-admin .glyphicon{
+	font-size: 20px;
+}
+.menu-lateral-admin i{
+	background: rgba(136, 12, 232, 0.5);
+	color: white;
+	position: absolute;
+	left: 28px;
+	top: -7px;
+	width: 0;
+	overflow: hidden;
+}
+.menu-lateral-admin li:hover i{
+	width: 100px;	
+}
+.menu-lateral-admin i{
+	transition: width .3s;
+}

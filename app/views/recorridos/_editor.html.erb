@@ -1,8 +1,8 @@
-<div  ng-app="EstacionesMngr" ng-controller="estacionesController">
-	<div class="container" >
+<div ng-app="EstacionesMngr" ng-controller="estacionesController">
+	<div class="container-fluid" >
 		<div class="row">
-		<h1 class="col-md-4">Recorrido </h1>
-		<div class="form-horizontal col-md-8" style="margin-top:20px">
+		<h1 class="col-md-3">Recorrido </h1>
+		<div class="form-horizontal col-md-9" style="margin-top:20px">
 				<div class="form-group">
 					<label class="control-label col-sm-2">Nombre:</label>
 					<div class="col-sm-7">
@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			</div>
-		<div class="col-md-4" >
+		<div class="col-md-3" >
 			
 			<div class="opciones-dinosaurios">
 				<div class="panel" ng-repeat="estacion in recorrido.estaciones"  draggable="true">
@@ -24,9 +24,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-9">
 
-			<div class="mapa-estaciones">
+			<div id="mapa" class="mapa-estaciones">
 				<button class="btn btn-default estacion{{$index+1}}" ng-repeat="estacion in recorrido.estaciones" 
 						popover="{{estacion.dinosaurio.nombre || ' '}}" popover-title="{{estacion.nombre}}" 
 						popover-trigger="mouseenter" data-toggle="modal" data-target="#modalDinosaurios" ng-click="cambiarEstacionSeleccionada(estacion)" ondragover="caete(event)">
@@ -46,28 +46,28 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-				<div class="col-md-6">
-					<div class="opcion-lista" ng-repeat="dinosaurio in dinosaurios" ng-click="asignarDino(dinosaurio, estacionSeleccionada)" ng-class="{seleccionado: dinosaurio.id == estacionSeleccionada.dinosaurio.id}">
-						<img ng-src="{{dinosaurio.pathImagen}}" class="pull-right img-dinosaurio" />
-						<h4>{{dinosaurio.nombre}}</h4>
-						{{dinosaurio.descripcion}}
+						<div class="col-md-6 columna-modal">
+							<div class="opcion-lista" ng-repeat="dinosaurio in dinosaurios" ng-click="asignarDino(dinosaurio, estacionSeleccionada)" ng-class="{seleccionado: dinosaurio.id == estacionSeleccionada.dinosaurio.id}">
+								<img ng-src="{{dinosaurio.pathImagen}}" class="pull-right img-dinosaurio" />
+								<h4>{{dinosaurio.nombre}}</h4>
+								{{dinosaurio.descripciones[0].contenido}}
+							</div>
+						</div>
+						<div class="col-md-6 columna-modal">
+							<div ng-repeat="pregunta in preguntas | filter: {dinosaurio_id: estacionSeleccionada.dinosaurio.id}" 
+								ng-click="toggleSeleccionPregunta(pregunta)">
+								<input type="checkbox" ng-checked="estacionSeleccionada.preguntas.indexOf(pregunta) > -1" />
+								<b>{{pregunta.contenido}}</b>
+								<ul>
+									<li ng-repeat="respuesta in pregunta.respuestas">{{respuesta.contenido}}</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div ng-repeat="pregunta in preguntas | filter: {dinosaurio_id: estacionSeleccionada.dinosaurio.id}" 
-						ng-click="toggleSeleccionPregunta(pregunta)">
-						<input type="checkbox" ng-checked="estacionSeleccionada.preguntas.indexOf(pregunta) > -1" />
-						<b>{{pregunta.contenido}}</b>
-						<ul>
-							<li ng-repeat="respuesta in pregunta.respuestas">{{respuesta.contenido}}</li>
-						</ul>
-					</div>
+				<div class="modal-footer">
+					<button data-dismiss="modal" class="btn btn-default" >Confirmar</button>
 				</div>
-			</div>
-			</div>
-			<div class="modal-footer">
-				<button data-dismiss="modal" class="btn btn-default" >Confirmar</button>
-			</div>
 			</div>
 		</div>
 	</div>

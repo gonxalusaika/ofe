@@ -24,11 +24,12 @@ class Api::RecorridosController < ApplicationController
 		offset = rand(Recorrido.count)
 		@recorrido = Recorrido.offset(offset).first
 		respond_to do |format|
-			format.json { 
-				json = @recorrido.to_json(include: relaciones_incluye, only: params_exportar)
-		    	json.gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
-		    	render json:  json
-			}
+			format.json { render json: @recorrido.to_json(include: relaciones_incluye, only: params_exportar)}
+			# format.json { 
+			# 	json = @recorrido.to_json(include: relaciones_incluye, only: params_exportar)
+		 #    	json.gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
+		 #    	render json:  json
+			# }
 			format.xml {render xml: @recorrido.to_xml(include: relaciones_incluye, only: params_exportar)}
 		end
 	end
@@ -75,7 +76,7 @@ class Api::RecorridosController < ApplicationController
 		def relaciones_incluye
 			{:estacions => {
 				include: {
-					:dinosaurio => { only: [:id, :nombre], methods: :descProcesada}, 
+					:dinosaurio => { include: :descripciones, only: [:id, :nombre, :descripcion]}, 
 					:preguntas => {include: {:respuestas => {only: [:id, :contenido, :es_correcta]}}, only: [:id, :contenido]}
 					},	
 				only: [:id, :indice]}}

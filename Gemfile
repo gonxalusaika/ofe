@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
+# gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -23,6 +21,7 @@ gem 'turbolinks'
 #gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
@@ -35,13 +34,14 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'rails_12factor', group: :production
-gem 'pg', group: :production
+gem 'pg', '>= 0.17.2.pre.546'
 
 gem 'cocoon'
 gem 'quiet_assets', group: :development
 gem 'paperclip', "~> 3.5.3"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem 'apipie-rails'
+gem 'colorize'

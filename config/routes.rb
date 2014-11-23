@@ -24,11 +24,12 @@ Rails.application.routes.draw do
   get "browse/aboutus"
 
   get "admin" => "admin#index"
+  get "resultados" => "resultados#index"
 
   #Sessions Users
   get "logout_user" => "sessions#destroy", :as => "logout_user"
   post "login_user" => "sessions#new", :as => "login_user"
-  
+  get "login" => "sessions#create", :as => "login"
 
  #Users
   get "signup" => "users#new", :as => "signup"

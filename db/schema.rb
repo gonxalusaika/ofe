@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108133427) do
+ActiveRecord::Schema.define(version: 20141123191140) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "cuestionarios", force: true do |t|
     t.string   "nombre"
@@ -20,11 +23,19 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.datetime "updated_at"
   end
 
-  add_index "cuestionarios", ["preguntas_id"], name: "index_cuestionarios_on_preguntas_id"
+  add_index "cuestionarios", ["preguntas_id"], name: "index_cuestionarios_on_preguntas_id", using: :btree
+
+  create_table "descripciones", force: true do |t|
+    t.text     "contenido"
+    t.integer  "dinosaurio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "descripciones", ["dinosaurio_id"], name: "index_descripciones_on_dinosaurio_id", using: :btree
 
   create_table "dinosaurios", force: true do |t|
     t.string   "nombre"
-    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "periodo_id"
@@ -32,9 +43,12 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.string   "icono_content_type"
     t.integer  "icono_file_size"
     t.datetime "icono_updated_at"
+    t.string   "url_icono"
+    t.integer  "descripciones_id"
   end
 
-  add_index "dinosaurios", ["periodo_id"], name: "index_dinosaurios_on_periodo_id"
+  add_index "dinosaurios", ["descripciones_id"], name: "index_dinosaurios_on_descripciones_id", using: :btree
+  add_index "dinosaurios", ["periodo_id"], name: "index_dinosaurios_on_periodo_id", using: :btree
 
   create_table "estacions", force: true do |t|
     t.integer  "indice"
@@ -45,9 +59,9 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.datetime "updated_at"
   end
 
-  add_index "estacions", ["dinosaurio_id"], name: "index_estacions_on_dinosaurio_id"
-  add_index "estacions", ["preguntas_id"], name: "index_estacions_on_preguntas_id"
-  add_index "estacions", ["recorrido_id"], name: "index_estacions_on_recorrido_id"
+  add_index "estacions", ["dinosaurio_id"], name: "index_estacions_on_dinosaurio_id", using: :btree
+  add_index "estacions", ["preguntas_id"], name: "index_estacions_on_preguntas_id", using: :btree
+  add_index "estacions", ["recorrido_id"], name: "index_estacions_on_recorrido_id", using: :btree
 
   create_table "estacions_preguntas", force: true do |t|
     t.integer "estacion_id"
@@ -69,8 +83,8 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.datetime "updated_at"
   end
 
-  add_index "preguntas", ["cuestionario_id"], name: "index_preguntas_on_cuestionario_id"
-  add_index "preguntas", ["dinosaurio_id"], name: "index_preguntas_on_dinosaurio_id"
+  add_index "preguntas", ["cuestionario_id"], name: "index_preguntas_on_cuestionario_id", using: :btree
+  add_index "preguntas", ["dinosaurio_id"], name: "index_preguntas_on_dinosaurio_id", using: :btree
 
   create_table "recorridos", force: true do |t|
     t.string   "nombre"
@@ -79,7 +93,7 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.datetime "updated_at"
   end
 
-  add_index "recorridos", ["estacions_id"], name: "index_recorridos_on_estacions_id"
+  add_index "recorridos", ["estacions_id"], name: "index_recorridos_on_estacions_id", using: :btree
 
   create_table "respuestas", force: true do |t|
     t.string   "contenido"
@@ -90,7 +104,7 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.datetime "updated_at"
   end
 
-  add_index "respuestas", ["pregunta_id"], name: "index_respuestas_on_pregunta_id"
+  add_index "respuestas", ["pregunta_id"], name: "index_respuestas_on_pregunta_id", using: :btree
 
   create_table "resultado_preguntas", force: true do |t|
     t.integer  "pregunta_id"
@@ -99,8 +113,8 @@ ActiveRecord::Schema.define(version: 20141108133427) do
     t.datetime "updated_at"
   end
 
-  add_index "resultado_preguntas", ["pregunta_id"], name: "index_resultado_preguntas_on_pregunta_id"
-  add_index "resultado_preguntas", ["respuesta_id"], name: "index_resultado_preguntas_on_respuesta_id"
+  add_index "resultado_preguntas", ["pregunta_id"], name: "index_resultado_preguntas_on_pregunta_id", using: :btree
+  add_index "resultado_preguntas", ["respuesta_id"], name: "index_resultado_preguntas_on_respuesta_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"

@@ -1,9 +1,12 @@
 <div class="container">
 	<h1><%= @recorrido.nombre %></h1>
 		<% @recorrido.estacions.each do |estacion| %>
-		<div class="opcion-lista">
-		<img src="<%= estacion.dinosaurio.icono.url %>" class="pull-right" style="max-width: 50px; max-height: 50px" />
-		<h3>Estacion <%= estacion.indice %> - <%= estacion.dinosaurio.nombre unless estacion.dinosaurio.nil? %> </h3>
+		<div class="panel panel-default">
+      <div class="panel-heading">
+		<h3 class="panel-title">Estacion <%= estacion.indice %> - <%= estacion.dinosaurio.nombre unless estacion.dinosaurio.nil? %> </h3>
+      </div>
+      <div class="panel-body">
+		<img src="<%= estacion.dinosaurio.icono.url %>" class="pull-right" style="max-width: 90px; max-height: 90px" />
 		<ul>
 			<% estacion.preguntas.each do |pregunta| %>
 				<li><b><%= pregunta.contenido %></b>
@@ -16,6 +19,7 @@
 			<% end %>
 		</ul>
 	</div>
+</div>
 		<% end %>
 	</ul>
 </div>

@@ -9,6 +9,8 @@ class RecorridosController < ApplicationController
   end
 
   def new
+    # @dinosaurios = []
+    # @preguntas = []
     @dinosaurios = Dinosaurio.all
     @preguntas = Pregunta.all
   end

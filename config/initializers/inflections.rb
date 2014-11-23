@@ -18,4 +18,5 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'pregunta', 'preguntas'
   inflect.irregular 'respuesta', 'respuestas'
+  inflect.irregular 'descripcion', 'descripciones'
 end

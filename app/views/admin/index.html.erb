@@ -1,9 +1,41 @@
 <div class="container">
 	<h1>Consola administrativa</h1>
-	<ul>
-		<li><%= link_to "Periodos", :periodos %></li>
-		<li><%= link_to "Dinosaurios", :dinosaurios %></li>
-		<li><%= link_to "Recorridos", :recorridos %></li>
-		<li><%= link_to "Preguntas", :preguntas %></li>
-		</ul>
+	<ul class="list-inline text-center" style="margin-top: 50px;">
+		<li class="opcion-admin" >
+			<%= link_to :periodos do %>
+				<span class="icon-admin glyphicon glyphicon-time"></span><br>
+				Periodos
+			<% end %>
+		</li>
+		<li class="opcion-admin" >
+			<%= link_to :dinosaurios do %>
+				<span class="icon-admin glyphicon glyphicon-eye-open"></span><br>
+				Dinosaurios
+			<% end %>
+		</li>
+		<li class="opcion-admin" >
+			<%= link_to :recorridos do %>
+				<span class="icon-admin glyphicon glyphicon-road"></span><br>
+				Recorridos
+			<% end %>
+		</li>
+		<li class="opcion-admin" >
+			<%= link_to :preguntas do %>
+				<span class="icon-admin glyphicon glyphicon-question-sign"></span><br>
+				Preguntas
+			<% end %>
+		</li>
+		<li class="opcion-admin" >
+			<%= link_to :users do %>
+				<span class="icon-admin glyphicon glyphicon-user"></span><br>
+				Usuarios
+			<% end %>
+		</li>
+		<li class="opcion-admin" >
+			<%= button_to :resultados, method: :get, class: "link-trucho" do %>
+				<span class="icon-admin glyphicon glyphicon-stats"></span><br>
+				Resultados
+			<% end %>
+		</li>
+	</ul>
 </div>

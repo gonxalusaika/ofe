@@ -3,16 +3,19 @@ def new
   @user = User.authenticate(params[:email], params[:password])
   if @user
     session[:user_id] = @user.id
-    redirect_to root_url
+    redirect_to admin_url
   else
     session[:user_id] = nil
-    render :action => "new"
-    flash[:notice] = "Wrong email or password"
+    @error = "El email o contraseña son incorrectos"
+    render :action => "create"
   end
   end
 
   def destroy
-  session[:user_id] = nil
-  redirect_to root_url
+    session[:user_id] = nil
+    redirect_to root_url
+  end
+
+  def create
   end
 end

@@ -1,0 +1,41 @@
+<div class="container" ng-app="Resultados" ng-controller="ResultadosController">
+	<h1>Resultados</h1>
+	<% @preguntas.each_with_index do |pregunta, index| %>
+	<div class="row panel panel-default">
+		<div class="panel-body">
+			<div class="col-md-8">
+				<h4><%= pregunta.contenido %></h4>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Respuesta</th>
+							<th>Cantidad</th>
+							<th>Correcta</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% pregunta.respuestas.each do |respuesta| %>
+							<tr>
+								<td><%= respuesta.contenido %></td>
+								<td><%= respuesta.cantidad_elegida %></td>
+								<td>
+									<% if respuesta.es_correcta %>
+										<span class="glyphicon glyphicon-ok verde"></span>
+									<% end %>
+								</td>
+							</tr>
+					<% end %>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<pie-chart data="preguntas[<%= index %>].datos" options="options" style="height:250px"></pie-chart>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+<canvas id="can" height:"200px" width: "200px" chart="{{slices}}" ></canvas>
+<div chart />
+
+<%= javascript_tag "var preguntas = #{@preguntas.to_json(include: {:respuestas => {methods: :cantidad_elegida}})};" %>
