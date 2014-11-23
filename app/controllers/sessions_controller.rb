@@ -6,7 +6,7 @@ def new
     redirect_to admin_url
   else
     session[:user_id] = nil
-    @error = "El email o contraseña son incorrectos"
+    @error = "El email o contrasenia son incorrectos"
     render :action => "create"
   end
   end
