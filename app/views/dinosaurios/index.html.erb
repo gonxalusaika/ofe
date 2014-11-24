@@ -25,7 +25,7 @@
     <% @dinosaurios.each do |dinosaurio| %>
       <tr>
         <td><%= dinosaurio.nombre %></td>
-        <td><%= dinosaurio.descripcion %></td>
+        <td><%= dinosaurio.descripciones[0].contenido unless dinosaurio.descripciones.size == 0 %></td>
         <td><%= dinosaurio.periodo.nombre unless dinosaurio.periodo.nil? %></td>
         <td>
         <%= button_to dinosaurio, method: :get, class: 'btn btn-default' do %>

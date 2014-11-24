@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'rails_12factor', group: :production
-gem 'pg', '>= 0.17.2.pre.546'
+gem 'pg'
 
 gem 'cocoon'
 gem 'quiet_assets', group: :development

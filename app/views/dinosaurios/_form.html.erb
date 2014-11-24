@@ -14,16 +14,21 @@
     <%= f.text_field :nombre, class: "form-control"  %>
   </div>
   <div class="field form-group">
-    <%= f.label :descripcion %>
-    <%= f.text_area :descripcion, class: "form-control"  %>
-  </div>
-  <div class="field form-group">
     <%= f.label :periodo %>
     <%= collection_select :dinosaurio, :periodo_id, Periodo.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
   </div>
   <div class="field form-group">
     <%= f.label :icono %>
     <%= f.file_field :icono %>
+  </div>
+  <h3>Descripciones</h3>
+  <div class="form-group">
+    <%= f.fields_for :descripciones do |p| %>
+      <%= render "descripcion_fields", :f => p %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Agregar descripcion', f, :descripciones %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit 'Registrar', class: "btn btn-default" %>
