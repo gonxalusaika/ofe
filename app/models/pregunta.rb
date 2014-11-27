@@ -7,6 +7,8 @@ class Pregunta < ActiveRecord::Base
 
 	accepts_nested_attributes_for :respuestas
 
+	validates_with ValidadorPregunta
+
 	def build_respuestas
   	4.times do
   		@respuesta = Respuesta.new

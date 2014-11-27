@@ -5,6 +5,9 @@
 .info-inicio{
   margin-top:     50px;
   margin-bottom:  50px;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 1s, transform 1s;
 }
 .info-inicio h2{
   font-size: 30px;

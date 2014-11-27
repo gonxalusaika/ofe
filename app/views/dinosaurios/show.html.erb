@@ -6,10 +6,12 @@
   <%= @dinosaurio.nombre %>
 </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @dinosaurio.descripcion %>
-</p>
+<strong>Descripcion:</strong>
+<% @dinosaurio.descripciones.each do |descripcion| %>
+	<p>
+	  <%= descripcion.contenido %>
+	</p>
+<% end %>
 
 <p>
   <strong>Periodo:</strong>

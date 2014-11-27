@@ -20,12 +20,11 @@
     <%= collection_select :pregunta, :dinosaurio_id, Dinosaurio.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
   </div>
   <div class="respuestas">
-    <% f.object.build_respuestas if f.object.id == nil %>
     <% @pregunta.respuestas.each_with_index do |respuesta, index| %>
       <%= f.fields_for :respuestas, respuesta do |r| %>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Pregunta <%= index+1 %></h3>
+          <h3 class="panel-title">Respuesta <%= index+1 %></h3>
         </div>
         <div class="panel-body">
           <div class="form-group">

@@ -24,6 +24,11 @@ class Dinosaurio < ActiveRecord::Base
 		sentence.gsub(/\n/, '<br>')
 	end
 
+	def build_descripciones
+		descripcion = Descripcion.new
+		self.descripciones << descripcion
+	end
+
 	private
 		def cachear_url_icono
 			self.url_icono = self.icono.url unless self.icono.nil?

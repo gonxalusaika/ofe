@@ -17,6 +17,7 @@ class DinosauriosController < ApplicationController
   # GET /dinosaurios/new
   def new
     @dinosaurio = Dinosaurio.new
+    @dinosaurio.build_descripciones
   end
 
   # GET /dinosaurios/1/edit
@@ -71,7 +72,8 @@ class DinosauriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dinosaurio_params
-      params.require(:dinosaurio).permit(:nombre, :descripcion, :icono, :periodo_id)
+      params.require(:dinosaurio).permit(:nombre, :icono, :periodo_id, 
+        :descripciones_attributes => [:id, :contenido])
     end
 
 end

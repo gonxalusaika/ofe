@@ -18,6 +18,7 @@ class PreguntasController < ApplicationController
   # GET /preguntas/new
   def new
     @pregunta = Pregunta.new
+    @pregunta.build_respuestas
   end
 
   # GET /preguntas/1/edit
