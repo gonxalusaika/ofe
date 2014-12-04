@@ -77,7 +77,7 @@ class Api::RecorridosController < ApplicationController
 			{:estacions => {
 				include: {
 					:dinosaurio => { include: :descripciones, only: [:id, :nombre, :descripcion]}, 
-					:preguntas => {include: {:respuestas => {only: [:id, :contenido, :es_correcta]}}, only: [:id, :contenido]}
+					:preguntas => {include: {:respuestas => {only: [:id, :contenido, :es_correcta, :feedback]}}, only: [:id, :contenido]}
 					},	
 				only: [:id, :indice]}}
 		end

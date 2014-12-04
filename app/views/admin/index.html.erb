@@ -32,7 +32,7 @@
 			<% end %>
 		</li>
 		<li class="opcion-admin" >
-			<%= button_to :resultados, method: :get, class: "link-trucho" do %>
+			<%= link_to :resultados, 'data-no-turbolink' => true do %>
 				<span class="icon-admin glyphicon glyphicon-stats"></span><br>
 				Resultados
 			<% end %>

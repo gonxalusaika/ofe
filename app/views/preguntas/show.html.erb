@@ -9,7 +9,8 @@
 <p><b>Respuestas:</b></p>
 <ul>
 	<% @pregunta.respuestas.each_with_index do |respuesta, index| %>
-	<li <%= "style=color:green;" if respuesta.es_correcta %>><%= respuesta.contenido %></li>
+	<li <%= "style=color:green;" if respuesta.es_correcta %>>
+		<%= respuesta.contenido %> <br> <%= respuesta.feedback %></li>
 	<% end %>
 </ul>
 
