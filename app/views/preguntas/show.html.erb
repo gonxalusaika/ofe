@@ -1,19 +1,25 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
+<h1>Pregunta
+	<%= link_to edit_pregunta_path(@pregunta), class: "btn btn-default" do %>
+		<span class="glyphicon glyphicon-edit"></span>
+	<% end %>
+</h1>
 
-<p>
-	<b>Contenido:</b>
+<h4>
 	<%=	@pregunta.contenido %> <br>
-</p>
+</h4>
 <p><b>Respuestas:</b></p>
-<ul>
+<ol class="lista-respuestas">
 	<% @pregunta.respuestas.each_with_index do |respuesta, index| %>
 	<li <%= "style=color:green;" if respuesta.es_correcta %>>
-		<%= respuesta.contenido %> <br> <%= respuesta.feedback %></li>
+		<%= respuesta.contenido %> <br> 
+		<small><b>Feedback: </b><%= respuesta.feedback %></small>
+	</li>
 	<% end %>
-</ul>
+</ol>
 
-<%= link_to 'Editar', edit_pregunta_path(@pregunta) %> |
-<%= link_to 'Volver', preguntas_path %>
+
+<%= link_to 'Volver', preguntas_path, class: "btn btn-default" %>
 </div>

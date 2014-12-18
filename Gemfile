@@ -45,3 +45,4 @@ gem 'paperclip', "~> 3.5.3"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem 'apipie-rails'
 gem 'colorize'
+gem "mail", "2.5.4"

@@ -1,7 +1,7 @@
 <div class="container">
 <h1>    
   <%= link_to :admin, class: "pull-right btn btn-default" do %>
-    <span class="fa fa-cogs"></span>
+    <span class="glyphicon glyphicon-cog"></span>
     Administración
   <% end %>
   Listing usuarios
@@ -15,7 +15,7 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th>Fecha Creación</th>
+      <th>Miembro desde</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -26,13 +26,17 @@
         <td><%= user.email %></td>
         <td><%= user.created_at %></td>
         <td>
-          <%= button_to edit_user_path(user), method: :get, class: 'btn btn-default' do %>
-            <i class="glyphicon glyphicon-edit"></i>
+          <% if current_user.es_admin %>
+            <%= button_to edit_user_path(user), method: :get, class: 'btn btn-default' do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
           <% end %>
         </td>
         <td>
-          <%= button_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
-            <i class="glyphicon glyphicon-remove"></i>
+          <% if current_user.es_admin and user.id != current_user.id %>
+            <%= button_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+              <i class="glyphicon glyphicon-remove"></i>
+            <% end %>
           <% end %>
         </td>
       </tr>

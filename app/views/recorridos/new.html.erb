@@ -1,3 +1,1 @@
 <%= render 'editor' %>
-<%= javascript_tag "var dinosaurios = #{@dinosaurios.to_json(include: :descripciones, methods: [:pathImagen])};
-										var preguntas = #{@preguntas.to_json(include: :respuestas)}" %>

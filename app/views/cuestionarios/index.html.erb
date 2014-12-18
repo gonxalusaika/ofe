@@ -1,5 +1,10 @@
 <div class="container">
-<h1>Listado de cuestionarios
+<h1>
+  <%= link_to :admin, class: "pull-right btn btn-default" do %>
+    <span class="glyphicon glyphicon-cog"></span>
+    Administración
+  <% end %>
+  Listado de cuestionarios
   <%= link_to new_cuestionario_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-plus"></span> Nuevo
   <%end%>

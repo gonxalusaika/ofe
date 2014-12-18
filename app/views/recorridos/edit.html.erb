@@ -1,4 +1,2 @@
 <%= render 'editor' %>
-<%= javascript_tag "var recorrido = #{@recorrido.to_json(include: {:estacions => {include: :preguntas}}) };
-										var dinosaurios = #{@dinosaurios.to_json(methods: [:pathImagen])};
-										var preguntas = #{@preguntas.to_json(include: :respuestas)}" %>
+<%= javascript_tag "var recorrido = #{@recorrido.to_json(include: {:estacions => {include: :preguntas}}) };" %>

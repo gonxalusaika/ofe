@@ -38,7 +38,7 @@
 	</div>
 
 
-	<div id="modalDinosaurios" class="modal">
+	<div id="modalDinosaurios" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -70,5 +70,14 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="loader-cover" style="display:block">
+	  <div class="panel panel-default">
+	    <div class="panel-body loader">
+	      <%= image_tag "chibi_char.png", class: "loader-dino" %>
+	      <%= image_tag "rawr.svg", class: "loader-globo" %>
+	      <h4>{{infoLoader}}</h4>
+	    </div>
+	  </div>
 	</div>
 </div>

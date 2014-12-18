@@ -37,7 +37,7 @@
 		<% end %>
 	</div>
 	<div class="dino-logo hidden-sm hidden-xs">
-		<%= link_to image_tag( "logo.png", size: "50%"), root_url %>
+		<%= image_tag( "logo.png", size: "50%") %>
 	</div>
 </nav>
 <%= yield %>
@@ -46,37 +46,45 @@
 <% if current_user %>
 	<ul class="menu-lateral-admin">
 		<li>
-			<%= link_to :periodos do %>
+			<%= link_to :periodos, 'data-toggle' => 'tooltip', title: "Períodos", 'data-placement' => 'right' do %>
 				<span class="glyphicon glyphicon-time"></span>
-				<i>Periodos</i>
 			<% end %>
 		</li>
 		<li>
-			<%= link_to :dinosaurios do %>
+			<%= link_to :dinosaurios, 'data-toggle' => 'tooltip', title: "Dinosaurios", 'data-placement' => 'right'  do %>
 				<span class="glyphicon glyphicon-eye-open"></span>
-				<i>Dinosaurios</i>
 			<% end %>
 		</li>
 		<li>
-			<%= link_to :recorridos do %>
+			<%= link_to :recorridos, 'data-toggle' => 'tooltip', title: "Recorridos", 'data-placement' => 'right'  do %>
 				<span class="glyphicon glyphicon-road"></span>
-				<i>Recorridos</i>
 			<% end %>
 		</li>
 		<li>
-			<%= link_to :preguntas do %>
+			<%= link_to :preguntas, 'data-toggle' => 'tooltip', title: "Preguntas", 'data-placement' => 'right'  do %>
 				<span class="glyphicon glyphicon-question-sign"></span>
-				<i>Preguntas</i>
 			<% end %>
 		</li>
+		<% if current_user.es_admin %>
+			<li>
+				<%= link_to :users, 'data-toggle' => 'tooltip', title: "Usuarios", 'data-placement' => 'right'  do %>
+					<span class="glyphicon glyphicon-user"></span>
+				<% end %>
+			</li>
+		<% end %>
 		<li>
-			<%= link_to :users do %>
-				<span class="glyphicon glyphicon-user"></span>
-				<i>Usuarios</i>
+			<%= link_to :resultados, 'data-toggle' => 'tooltip', title: "Resultados", 'data-placement' => 'right'  do %>
+				<span class="glyphicon glyphicon-stats"></span>
 			<% end %>
 		</li>
 	</ul>
 <% end %>
+
+<script type="text/javascript">
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip();
+	});
+</script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@ class Estacion < ActiveRecord::Base
   has_and_belongs_to_many :preguntas
 
   validates :dinosaurio, presence: {message: "El dinosaurio no puede ser vacio"}
-  validates_with ValidadorPreguntasEstacion
+  validates_with ValidadorEstacion
 
   	# def coinciden_preguntas_dinosaurio?
   	# 	errores = 0

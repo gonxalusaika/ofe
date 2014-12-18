@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123191140) do
+ActiveRecord::Schema.define(version: 20141218204001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,10 +111,21 @@ ActiveRecord::Schema.define(version: 20141123191140) do
     t.integer  "respuesta_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "resultado_recorrido_id"
   end
 
   add_index "resultado_preguntas", ["pregunta_id"], name: "index_resultado_preguntas_on_pregunta_id", using: :btree
   add_index "resultado_preguntas", ["respuesta_id"], name: "index_resultado_preguntas_on_respuesta_id", using: :btree
+  add_index "resultado_preguntas", ["resultado_recorrido_id"], name: "index_resultado_preguntas_on_resultado_recorrido_id", using: :btree
+
+  create_table "resultado_recorridos", force: true do |t|
+    t.integer  "recorrido_id"
+    t.string   "alumno"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "resultado_recorridos", ["recorrido_id"], name: "index_resultado_recorridos_on_recorrido_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -124,6 +135,7 @@ ActiveRecord::Schema.define(version: 20141123191140) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "es_admin"
   end
 
 end

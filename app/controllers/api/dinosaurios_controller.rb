@@ -5,9 +5,10 @@ class Api::DinosauriosController < ApplicationController
 		@dinosaurios = Dinosaurio.all
 		respond_to do |format|
 		    format.json { 
-		    	json = @dinosaurios.to_json(only: [:id, :nombre, :descripcion], methods: [:descProcesada, :pathImagen])
-		    	json.gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
-		    	render json:  json
+		    	render json: @dinosaurios.to_json(include: :descripciones, methods: [:pathImagen])
+		    	# json = @dinosaurios.to_json(only: [:id, :nombre, :descripcion], methods: [:descProcesada, :pathImagen])
+		    	# json.gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
+		    	# render json:  json
 		    }
 		    format.xml { render xml: @dinosaurios }
 	    end

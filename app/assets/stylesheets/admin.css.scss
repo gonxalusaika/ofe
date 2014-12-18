@@ -7,11 +7,13 @@
 	border-radius: 10px;
 	padding: 20px !important;
 	margin: 15px;
-	transition: transform .2s;
+	box-shadow: 1px 1px 6px #666;
+	transition: transform .2s, box-shadow .2s;
 }
 
 .opcion-admin:hover{
 	transform: scale(1.1);
+	box-shadow: 5px 5px 6px #666;
 }
 
 .icon-admin{
@@ -40,9 +42,9 @@
 	position: relative;
 }
 .menu-lateral-admin .glyphicon{
-	font-size: 20px;
+	font-size: 25px;
 }
-.menu-lateral-admin i{
+/*.menu-lateral-admin i{
 	background: rgba(136, 12, 232, 0.5);
 	color: white;
 	position: absolute;
@@ -56,4 +58,4 @@
 }
 .menu-lateral-admin i{
 	transition: width .3s;
-}
+}*/

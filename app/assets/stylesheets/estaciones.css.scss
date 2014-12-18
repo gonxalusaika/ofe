@@ -65,11 +65,12 @@
 	background: white;
 	/*transition: transform .2s;*/
 }
-/*.opcion-lista:hover{
-	transform: scale(1.05);
-}*/
+.opcion-lista:hover{
+	background-color: #C785F9;
+}
 .seleccionado{
-	background: #E7D8F3;
+	background: #880CE8;
+	color: white;
 }
 .link-trucho{
 	background: none;

@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     get 'recorridos/:id' => "recorridos#show", defaults: {format: 'json'}
     post 'recorridos/create' => "recorridos#create", defaults: {format: 'json'}
     post 'recorridos/update' => "recorridos#update", defaults: {format: 'json'}
+    post 'resultados/create' => "resultados#create", defaults: {format: 'json'}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

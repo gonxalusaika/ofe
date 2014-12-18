@@ -25,12 +25,14 @@
 				Preguntas
 			<% end %>
 		</li>
-		<li class="opcion-admin" >
-			<%= link_to :users do %>
-				<span class="icon-admin glyphicon glyphicon-user"></span><br>
-				Usuarios
-			<% end %>
-		</li>
+		<% if current_user.es_admin %>
+			<li class="opcion-admin" >
+				<%= link_to :users do %>
+					<span class="icon-admin glyphicon glyphicon-user"></span><br>
+					Usuarios
+				<% end %>
+			</li>
+		<% end %>
 		<li class="opcion-admin" >
 			<%= link_to :resultados, 'data-no-turbolink' => true do %>
 				<span class="icon-admin glyphicon glyphicon-stats"></span><br>
