@@ -1,1 +1,9 @@
-<%= f.text_area :contenido, class: "form-control" %><br>
+<div class="nested-fields">
+	<div class="form-group <%= 'has-error' if f.object.errors[:contenido].any? %>">
+		<%= link_to_remove_association f, class: 'pull-right', 'data-toggle' => 'tooltip', 'data-placement' => 'top', title: 'Remover descripcion' do %>
+			<span class="glyphicon glyphicon-remove" ></span>
+		<% end %>
+		<%= f.text_area :contenido, class: "form-control" %><br>
+		<hr>
+	</div>
+</div>

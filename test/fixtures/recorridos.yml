@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  nombre: MyString
-  estaciones_id: 
+# one:
+#   nombre: MyString
+#   estaciones_id: 
 
-two:
-  nombre: MyString
-  estaciones_id: 
+# two:
+#   nombre: MyString
+#   estaciones_id: 

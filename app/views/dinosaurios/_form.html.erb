@@ -8,16 +8,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field form-group">
-    <%= f.label :nombre %>
+  <div class="field form-group <%= 'has-error' if @dinosaurio.errors[:nombre].any? %>">
+    <%= f.label :nombre, class: "control-label" %>
     <%= f.text_field :nombre, class: "form-control"  %>
   </div>
-  <div class="field form-group">
-    <%= f.label :periodo %>
+  <div class="field form-group <%= 'has-error' if @dinosaurio.errors[:periodo].any? %>">
+    <%= f.label :periodo, class: "control-label" %>
     <%= collection_select :dinosaurio, :periodo_id, Periodo.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
   </div>
-  <div class="field form-group">
+  <div class="field form-group <%= 'has-error' if @dinosaurio.errors[:icono].any? %>">
     <%= f.label :icono %>
     <%= f.file_field :icono %>
   </div>

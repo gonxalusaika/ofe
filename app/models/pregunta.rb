@@ -8,9 +8,9 @@ class Pregunta < ActiveRecord::Base
 	accepts_nested_attributes_for :respuestas
 
 	validates_with ValidadorPregunta
-	validates :contenido, presence: {message: "No puede ser vacio"}
+	validates :contenido, presence: {message: "La pregunta debe tener un contenido."}
 
-	def build_respuestas
+	def init_respuestas
   	4.times do
   		@respuesta = Respuesta.new
   		self.respuestas << @respuesta

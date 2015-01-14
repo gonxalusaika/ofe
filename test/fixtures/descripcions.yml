@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  contenido: MyText
+ankylo_1:
+  contenido: Desc del Ankylo
+  dinosaurio: ankylosaurus
 
-two:
-  contenido: MyText
+ankylo_2:
+  contenido: Otra Desc del Ankylo
+  dinosaurio: ankylosaurus

@@ -2,16 +2,13 @@ class Api::ResultadosController < ApplicationController
 	protect_from_forgery with: :null_session
 
 	def create
+		puts params.to_json.yellow
 		@resultado = ResultadoRecorrido.new(params_resultado(params))
 
-		respond_to do |format|
-      if @resultado.save
-        format.html { redirect_to @resultado, notice: 'Resultado was successfully created.' }
-        format.json { render json: @resultado }
-      else
-        format.html { render :new }
-        format.json { render json: @resultado.errors, status: :unprocessable_entity }
-      end
+    if @resultado.save
+      render json: @resultado
+    else
+      render json: @resultado.errors, status: :unprocessable_entity
     end
 	end
 

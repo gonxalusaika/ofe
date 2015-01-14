@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  indice: 
-  dinosaurio_id: 
-  preguntas_id: 
+# one:
+#   indice: 
+#   dinosaurio_id: 
+#   preguntas_id: 
 
-two:
-  indice: 
-  dinosaurio_id: 
-  preguntas_id: 
+# two:
+#   indice: 
+#   dinosaurio_id: 
+#   preguntas_id: 

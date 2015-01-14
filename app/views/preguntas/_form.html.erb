@@ -1,22 +1,20 @@
 <%= form_for(@pregunta) do |f| %>
   <% if @pregunta.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pregunta.errors.count, "error") %> han impedido que se guarde la pregunta:</h2>
-
+    <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% @pregunta.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @pregunta.errors.each_with_index do |message, i| %>
+        <li><%= message[1] %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= f.label :contenido %>
+  <div class="field form-group <%= 'has-error' if @pregunta.errors[:contenido].any? %>">
+    <%= f.label :contenido, class: "control-label" %>
     <%= f.text_field :contenido, class: "form-control" %><br>
   </div>
   <div class="field form-group">
-    <%= f.label :dinosaurio %>
+    <%= f.label :dinosaurio, class: "control-label" %>
     <%= collection_select :pregunta, :dinosaurio_id, Dinosaurio.all, :id, :nombre, {prompt: false}, {class: "form-control"} %>
   </div>
   <div class="respuestas">
@@ -27,25 +25,29 @@
           <h3 class="panel-title">Respuesta <%= index+1 %></h3>
         </div>
         <div class="panel-body">
-          <div class="form-group">
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <%= r.check_box :es_correcta %>
-                </div>
+          <div class="form-horizontal">
+            <div class="form-group <%= 'has-error' if respuesta.errors[:contenido].any? %>">
+              <%= r.label :contenido, class: "col-md-2 control-label" %>
+              <div class="col-md-10">
                 <%= r.text_field :contenido, class: "form-control" %>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  feedback
-                </div>
+            <div class="form-group <%= 'has-error' if respuesta.errors[:feedback].any? %>">
+              <%= r.label :feedback, class: "col-md-2 control-label" %>
+              <div class="col-md-10">
                 <%= r.text_field :feedback, class: "form-control" %>
               </div>
             </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <%= r.check_box :es_correcta %> ¿Es correcta?
+                  </label>
+                </div>
+              </div>
+            </div>
+              
           </div>
         </div>
       </div>

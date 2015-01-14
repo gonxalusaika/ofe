@@ -73,7 +73,7 @@ class DinosauriosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dinosaurio_params
       params.require(:dinosaurio).permit(:nombre, :icono, :periodo_id, 
-        :descripciones_attributes => [:id, :contenido])
+        :descripciones_attributes => [:id, :contenido, :_destroy])
     end
 
 end

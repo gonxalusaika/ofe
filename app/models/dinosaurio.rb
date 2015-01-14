@@ -3,14 +3,16 @@ class Dinosaurio < ActiveRecord::Base
 
 	belongs_to :periodo
 	has_many :preguntas
-	has_many :descripciones
+	has_many :descripciones, dependent: :destroy
 
-	accepts_nested_attributes_for :descripciones
+	accepts_nested_attributes_for :descripciones, allow_destroy: true
 
 	has_attached_file :icono, default_url: ActionController::Base.helpers.asset_path('dino-icon.jpg'),
 		storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml")
 
-	validates :nombre, presence: {message: "El nombre no puede ser vacio"}
+	validates :nombre, presence: {message: "El nombre no puede ser vacio"}, uniqueness: {message: "El nombre ya está en uso"}
+	validates :periodo, presence: true
+	validate  :must_have_tasks
 	validates_attachment :icono,
   		:content_type => { :content_type => [/\Aimage/, /\Avideo/] }
 
@@ -33,4 +35,8 @@ class Dinosaurio < ActiveRecord::Base
 		def cachear_url_icono
 			self.url_icono = self.icono.url unless self.icono.nil?
 		end
+
+		def must_have_tasks
+      errors.add(:descripciones, "Project needs to have at least one task") if descripciones.all? { |descripcion| descripcion.marked_for_destruction? }
+    end
 end

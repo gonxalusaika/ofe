@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class PeriodoTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "normal" do
+  	p = Periodo.new(nombre: "Un período")
+    assert p.valid?, "Periodo normal"
+  end
 end
