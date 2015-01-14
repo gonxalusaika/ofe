@@ -10,7 +10,7 @@ class Dinosaurio < ActiveRecord::Base
 	has_attached_file :icono, default_url: ActionController::Base.helpers.asset_path('dino-icon.jpg'),
 		storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml")
 
-	validates :nombre, presence: {message: "El nombre no puede ser vacio"}, uniqueness: {message: "El nombre ya está en uso"}
+	validates :nombre, presence: {message: "El nombre no puede ser vacio"}, uniqueness: {message: "El nombre ya esta en uso"}
 	validates :periodo, presence: true
 	validate  :must_have_tasks
 	validates_attachment :icono,
@@ -37,6 +37,6 @@ class Dinosaurio < ActiveRecord::Base
 		end
 
 		def must_have_tasks
-      errors.add(:descripciones, "Project needs to have at least one task") if descripciones.all? { |descripcion| descripcion.marked_for_destruction? }
+      errors.add(:descripciones, "Debe tener al menos una descripcion") if descripciones.all? { |descripcion| descripcion.marked_for_destruction? }
     end
 end
