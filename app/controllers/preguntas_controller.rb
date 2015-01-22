@@ -7,7 +7,12 @@ class PreguntasController < ApplicationController
   # GET /preguntas
   # GET /preguntas.json
   def index
-    @preguntas = Pregunta.all
+    if(params[:id_dinosaurio])
+      @dinosaurio = Dinosaurio.find(params[:id_dinosaurio])
+      @preguntas = Pregunta.where(dinosaurio_id: params[:id_dinosaurio]).all
+    else
+      @preguntas = Pregunta.all
+    end
   end
 
   # GET /preguntas/1

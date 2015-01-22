@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :periodos
 
   resources :dinosaurios
+  get "dinosaurios/:id_dinosaurio/preguntas" => "preguntas#index"
+
   resources :recorridos
 
   resources :users
