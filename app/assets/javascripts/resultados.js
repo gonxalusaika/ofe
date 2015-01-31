@@ -40,7 +40,7 @@ var app = angular.module('Resultados', ["highcharts-ng", 'n3-pie-chart', 'ngReso
           pregunta.info_grafico = generar_chart('pie', pregunta.contenido);
 
           angular.forEach(pregunta.respuestas, function(respuesta, iRespuesta){
-            var data = {name: respuesta.contenido, y: respuesta.cantidad_elegida};
+            var data = {name: wordwrap(respuesta.contenido, 30, '<br>'), y: respuesta.cantidad_elegida};
             if(respuesta.es_correcta)
               data.sliced = true;
             pregunta.info_grafico.series[0].data.push(data);
@@ -237,3 +237,17 @@ var app = angular.module('Resultados', ["highcharts-ng", 'n3-pie-chart', 'ngReso
   //       }
   //   }
   // }
+
+function wordwrap( str, width, brk, cut ) {
+ 
+    brk = brk || '\n';
+    width = width || 75;
+    cut = cut || false;
+ 
+    if (!str) { return str; }
+ 
+    var regex = '.{1,' +width+ '}(\\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\\S+?(\\s|$)');
+ 
+    return str.match( RegExp(regex, 'g') ).join( brk );
+ 
+}
