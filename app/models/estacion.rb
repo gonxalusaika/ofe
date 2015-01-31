@@ -13,4 +13,19 @@ class Estacion < ActiveRecord::Base
   	# 	end
   	# 	errores == 0
   	# end
+
+  def cargar_resultados
+    preguntas.each do |pregunta|
+      pregunta.respuestas.each do |respuesta|
+        # resultados = ResultadoPregunta.where(recorrido: recorrido.id, pregunta: pregunta, respuesta: respuesta).count
+        sql = "select count(1)
+          from resultado_preguntas r_preg join resultado_recorridos r_rec on r_preg.resultado_recorrido_id = r_rec.id join
+            recorridos recorrido on r_rec.recorrido_id = recorrido.id
+          where recorrido.id = #{recorrido.id} and r_preg.pregunta_id = #{pregunta.id} and r_preg.respuesta_id = #{respuesta.id}"
+        respuesta.cantidad_elegida = ActiveRecord::Base.connection.execute(sql)[0]["count"].to_i
+        # respuesta.cantidad_elegida = resultados
+      end
+    end
+  end
+
 end

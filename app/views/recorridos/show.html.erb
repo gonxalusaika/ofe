@@ -1,9 +1,9 @@
 <div class="container">
 	<h1><%= @recorrido.nombre %></h1>
-		<% @recorrido.estacions.each do |estacion| %>
+		<% @recorrido.estacions.each_with_index do |estacion, index| %>
 		<div class="panel panel-default">
       <div class="panel-heading">
-		<h3 class="panel-title">Estacion <%= estacion.indice %> - <%= estacion.dinosaurio.nombre unless estacion.dinosaurio.nil? %> </h3>
+		<h3 class="panel-title">Estacion <%= index + 1 %> - <%= estacion.dinosaurio.nombre unless estacion.dinosaurio.nil? %> </h3>
       </div>
       <div class="panel-body">
 		<img src="<%= estacion.dinosaurio.icono.url %>" class="pull-right" style="max-width: 90px; max-height: 90px" />

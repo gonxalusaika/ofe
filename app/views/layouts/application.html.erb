@@ -44,7 +44,7 @@
 
 
 <% if current_user %>
-	<ul class="menu-lateral-admin">
+	<ul class="menu-lateral-admin hidden-sm hidden-xs">
 		<li>
 			<%= link_to :periodos, 'data-toggle' => 'tooltip', title: "Períodos", 'data-placement' => 'right' do %>
 				<span class="glyphicon glyphicon-time"></span>
@@ -73,7 +73,7 @@
 			</li>
 		<% end %>
 		<li>
-			<%= link_to :resultados, 'data-toggle' => 'tooltip', title: "Resultados", 'data-placement' => 'right'  do %>
+			<%= link_to :resultados, 'data-toggle' => 'tooltip', title: "Resultados", 'data-placement' => 'right', 'data-no-turbolink' => true  do %>
 				<span class="glyphicon glyphicon-stats"></span>
 			<% end %>
 		</li>

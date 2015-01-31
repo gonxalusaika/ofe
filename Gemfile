@@ -44,5 +44,4 @@ gem 'quiet_assets', group: :development
 gem 'paperclip', "~> 3.5.3"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem 'apipie-rails'
-gem 'colorize'
-gem "mail", "2.5.4"
+gem 'colorize', group: :development

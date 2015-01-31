@@ -6,6 +6,12 @@ class ResultadosController < ApplicationController
 		preparar_resultados
 	end
 
+	def show
+		# @recorrido = Recorrido.find(params[:recorrido])
+		# @recorrido.cargar_resultados
+		@id = params[:recorrido]
+	end
+
 	private
 		def preparar_resultados
 			@preguntas = Pregunta.all

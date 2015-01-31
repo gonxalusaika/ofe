@@ -5,3 +5,26 @@
 .verde{
 	color: green;
 }
+
+.rojo{
+	color:red;
+}
+
+.estacion-resultado{
+	background-color: white;
+	border-radius: 2px;
+	padding: 10px !important;
+	cursor: pointer;
+	margin: 15px;
+	box-shadow: 1px 1px 6px #666;
+	transition: transform .2s, box-shadow .2s;
+}
+
+.estacion-resultado:hover{
+	transform: scale(1.1);
+	box-shadow: 5px 5px 6px #666;
+}
+
+.estacion-seleccionada{
+	background-color: #C477FF;
+}

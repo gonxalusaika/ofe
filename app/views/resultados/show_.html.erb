@@ -1,0 +1,15 @@
+<div class="container">
+	<h1><%= @recorrido.nombre %></h1>
+	<% @recorrido.estacions.each do |estacion| %>
+		<h4>Estacion <%= estacion.indice %></h4>
+		<% estacion.preguntas.each do |pregunta| %>
+			<%= pregunta.contenido %>
+			<br>
+			<% pregunta.respuestas.each do |respuesta| %>
+				<%= respuesta.contenido %>:
+				<%= respuesta.cantidad_elegida %>
+				<br>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

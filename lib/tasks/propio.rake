@@ -7,4 +7,18 @@ namespace :propio do
   	end
   end
 
+  task generar_resultados: :environment do
+  	recorrido = Recorrido.find(1)
+  	200.times do
+  		
+  		resultado = ResultadoRecorrido.new(recorrido: recorrido, alumno: 'trucho')
+	  	recorrido.estacions.each do |estacion|
+	  		estacion.preguntas.each do |pregunta|
+	  			resultado.resultado_preguntas << ResultadoPregunta.new(pregunta: pregunta, respuesta: pregunta.respuestas[rand(0..3)])
+	  		end
+	  	end
+	  	resultado.save
+	  end
+  end
+
 end

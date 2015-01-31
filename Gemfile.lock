@@ -143,7 +143,6 @@ DEPENDENCIES
   cocoon
   colorize
   jquery-rails
-  mail (= 2.5.4)
   paperclip (~> 3.5.3)
   paperclip-dropbox (>= 1.1.7)
   pg

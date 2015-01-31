@@ -1,0 +1,64 @@
+<div ng-app="Resultados" ng-controller="ResultadosController" ng-cloak>
+<div class="container-fluid" >
+	<h1>Resultados - {{recorrido.nombre}}</h1>
+	<div class="col-md-3">
+		<div ng-repeat="estacion in recorrido.estacions" >
+			<div class="estacion-resultado" ng-click="seleccionar_estacion(estacion)" ng-class="{'estacion-seleccionada': estacion == estacion_seleccionada}">
+				<h4>Estacion {{estacion.indice}} <strong class="verde pull-right">{{estacion.porcentaje_correctas}}%</strong></h4>
+				
+				<p>
+					<!-- <pie-chart data="estacion.info_grafico" options="pie_options" style="height:250px"></pie-chart> -->
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9">
+		<highchart style="height: 200px;" config="recorrido.info_grafico"></highchart>
+		<div ng-repeat="pregunta in estacion_seleccionada.preguntas">
+			<!-- <h4>{{pregunta.contenido}}</h4>
+			<div class="col-md-8">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Respuesta</th>
+							<th>Cantidad</th>
+							<th>Correcta</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="respuesta in pregunta.respuestas">
+							<td>{{respuesta.contenido}}</td>
+							<td>{{respuesta.cantidad_elegida}}</td>
+							<td>
+								<span ng-if="respuesta.es_correcta" class="glyphicon glyphicon-ok verde"></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+			<div class="col-md-6" style="padding-top: 10px;">
+				<highchart style="height: 200px" config="pregunta.info_grafico"></highchart>
+				Correcta: {{pregunta.respuesta_correcta.contenido}}
+			</div>
+    </div>
+	</div>
+</div>
+<div id="modalEstacion" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Estacion {{estacion_seleccionada.indice}}</h4>
+      </div>
+      <div class="modal-body">
+        
+	    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+	  </div>
+	</div>
+</div>
+</div>
+<script src="http://code.highcharts.com/highcharts.src.js"></script>
+<%= javascript_tag "var id = #{@id};" %>

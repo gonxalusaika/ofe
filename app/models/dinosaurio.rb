@@ -7,7 +7,7 @@ class Dinosaurio < ActiveRecord::Base
 
 	accepts_nested_attributes_for :descripciones, allow_destroy: true
 
-	has_attached_file :icono, default_url: ActionController::Base.helpers.asset_path('dino-icon.jpg'),
+	has_attached_file :icono, default_url: 'dino-icon.jpg',
 		storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml")
 
 	validates :nombre, presence: {message: "El nombre no puede ser vacio"}, uniqueness: {message: "El nombre ya esta en uso"}

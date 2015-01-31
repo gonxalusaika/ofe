@@ -21,4 +21,5 @@ module ApplicationHelper
       javascript_include_tag script
     end
   end
+
 end

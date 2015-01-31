@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index"
   get "resultados" => "resultados#index"
+  get "recorridos/:recorrido/resultados" => "resultados#show", as: 'resultados_recorrido'
 
   #Sessions Users
   get "logout_user" => "sessions#destroy", :as => "logout_user"
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
     post 'recorridos/create' => "recorridos#create", defaults: {format: 'json'}
     post 'recorridos/update' => "recorridos#update", defaults: {format: 'json'}
     post 'resultados/create' => "resultados#create", defaults: {format: 'json'}
+    get 'resultados/recorrido/:recorrido_id' => "resultados#show", defaults: {format: 'json'}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

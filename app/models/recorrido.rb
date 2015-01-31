@@ -8,4 +8,10 @@ class Recorrido < ActiveRecord::Base
   def fecha_creacion
   	self.created_at.strftime('%d/%m/%Y %H:%M')
   end
+
+  def cargar_resultados
+  	estacions.each do |estacion|
+  		estacion.cargar_resultados
+  	end
+  end
 end
