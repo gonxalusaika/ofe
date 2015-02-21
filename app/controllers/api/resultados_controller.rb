@@ -2,7 +2,6 @@ class Api::ResultadosController < ApplicationController
 	protect_from_forgery with: :null_session
 
 	def create
-		puts params.to_json.yellow
 		@resultado = ResultadoRecorrido.new(params_resultado(params))
 
     if @resultado.save
