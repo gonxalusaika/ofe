@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
-//= require angular.min
-//= require_tree .
+//= require_directory .

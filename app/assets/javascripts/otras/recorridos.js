@@ -1,5 +1,12 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+
+//= require otras/angular.min
+//= require otras/angular-resource.min
+//= require otras/ui-bootstrap-custom-tpls-0.10.0
+//= require otras/toastr.min
+
 var app = angular.module('EstacionesMngr', ['ngResource','ui.bootstrap'])
 	.filter('truncar', function(){
 		return function (text, length) {

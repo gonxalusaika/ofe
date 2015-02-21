@@ -8,7 +8,7 @@ class Pregunta < ActiveRecord::Base
 	accepts_nested_attributes_for :respuestas
 
 	validates_with ValidadorPregunta
-	validates :contenido, presence: {message: "La pregunta debe tener un contenido."}
+	validates :contenido, presence: true
 
 	def init_respuestas
   	4.times do

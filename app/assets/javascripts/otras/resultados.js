@@ -1,6 +1,11 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-var app = angular.module('Resultados', ["highcharts-ng", 'n3-pie-chart', 'ngResource'])
+
+//= require otras/angular.min
+//= require otras/angular-resource.min
+//= require otras/highcharts-ng
+
+var app = angular.module('Resultados', ["highcharts-ng", 'ngResource'])
   .factory('ResultadosSvc', ['$resource', function($resource){
     return $resource('/api/resultados/recorrido/:recorrido_id', {}, {
       recorrido: {method:'GET', params:{}}
@@ -25,7 +30,7 @@ var app = angular.module('Resultados', ["highcharts-ng", 'n3-pie-chart', 'ngReso
 {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: ''
             }
         }
 
@@ -43,6 +48,7 @@ var app = angular.module('Resultados', ["highcharts-ng", 'n3-pie-chart', 'ngReso
             var data = {name: wordwrap(respuesta.contenido, 30, '<br>'), y: respuesta.cantidad_elegida};
             if(respuesta.es_correcta)
               data.sliced = true;
+            pregunta.info_grafico.series[0].name = 'Cantidad elegida';
             pregunta.info_grafico.series[0].data.push(data);
             if(respuesta.es_correcta){
               pregunta.cantidad_correctas += respuesta.cantidad_elegida;
@@ -89,7 +95,7 @@ var app = angular.module('Resultados', ["highcharts-ng", 'n3-pie-chart', 'ngReso
         xAxis: xAxis,
         yAxis: yAxis, 
         series: [{
-          name: 'respuestas correctas', 
+          name: 'Cantidad correctas', 
           step: 'center', 
           data:[]
         }]};

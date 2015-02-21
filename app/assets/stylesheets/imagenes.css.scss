@@ -1,12 +1,12 @@
 
 .img-carousel-1{
-	background: asset-data-url("HighresScreenshot00004.jpg");
+	background: asset-url("HighresScreenshot00004.jpg");
 }
 .img-carousel-2{
-	background: asset-data-url("HighresScreenshot00003.jpg");
+	background: image-url("HighresScreenshot00003.jpg");
 }
 .img-carousel-3{
-	background: asset-data-url("HighresScreenshot00005.jpg");
+	background: asset-url('HighresScreenshot00005.jpg');
 }
 .fondo-carousel{
 	height: 500px;

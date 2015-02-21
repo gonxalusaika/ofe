@@ -3,7 +3,7 @@
 		<%= link_to_remove_association f, class: 'pull-right', 'data-toggle' => 'tooltip', 'data-placement' => 'top', title: 'Remover descripcion' do %>
 			<span class="glyphicon glyphicon-remove" ></span>
 		<% end %>
-		<%= f.text_area :contenido, class: "form-control" %><br>
+		<%= f.text_area :contenido, class: "form-control", maxlength: 325 %><br>
 		<hr>
 	</div>
 </div>

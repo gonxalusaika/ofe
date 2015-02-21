@@ -10,7 +10,7 @@ class Dinosaurio < ActiveRecord::Base
 	has_attached_file :icono, default_url: 'dino-icon.jpg',
 		storage: :dropbox, dropbox_credentials: Rails.root.join("config/dropbox.yml")
 
-	validates :nombre, presence: {message: "El nombre no puede ser vacio"}, uniqueness: {message: "El nombre ya esta en uso"}
+	validates :nombre, presence: true, uniqueness: {message: "ya esta en uso"}
 	validates :periodo, presence: true
 	validate  :must_have_tasks
 	validates_attachment :icono,

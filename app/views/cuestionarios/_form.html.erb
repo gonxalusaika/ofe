@@ -1,6 +1,6 @@
 <%= form_for(@cuestionario) do |f| %>
   <% if @cuestionario.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@cuestionario.errors.count, "error") %> prohibited this cuestionario from being saved:</h2>
 
       <ul>

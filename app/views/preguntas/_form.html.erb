@@ -2,8 +2,8 @@
   <% if @pregunta.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% @pregunta.errors.each_with_index do |message, i| %>
-        <li><%= message[1] %></li>
+      <% @pregunta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
       </ul>
     </div>
@@ -29,7 +29,7 @@
             <div class="form-group <%= 'has-error' if respuesta.errors[:contenido].any? %>">
               <%= r.label :contenido, class: "col-md-2 control-label" %>
               <div class="col-md-10">
-                <%= r.text_field :contenido, class: "form-control" %>
+                <%= r.text_field :contenido, class: "form-control", maxlength: 49 %>
               </div>
             </div>
             <div class="form-group <%= 'has-error' if respuesta.errors[:feedback].any? %>">
