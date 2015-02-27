@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :cuestionarios
 
   root :to => 'browse#home'
   get "browse/profile"

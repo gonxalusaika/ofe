@@ -24,7 +24,7 @@
         <td><%= cuestionario.nombre %></td>
         <td><%= button_to 'Show', cuestionario, method: :get, class: "btn btn-default" %></td>
         <td><%= button_to 'Edit', edit_cuestionario_path(cuestionario), method: :get, class: "btn btn-default" %></td>
-        <td><%= button_to 'Destroy', cuestionario, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        <td><%= button_to 'Destroy', cuestionario, method: :delete, data: { confirm: "¿Seguro que desea eliminar #{cuestionario.nombre}?" }, class: "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
