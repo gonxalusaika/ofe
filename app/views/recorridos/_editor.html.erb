@@ -56,7 +56,7 @@
 							</div>
 						</div>
 						<div class="col-md-6 columna-modal">
-							<div ng-repeat="pregunta in preguntas | filter: {dinosaurio_id: estacionSeleccionada.dinosaurio.id}" 
+							<div ng-repeat="pregunta in preguntas | filter: {dinosaurio_id: estacionSeleccionada.dinosaurio.id}:true" 
 								ng-click="toggleSeleccionPregunta(pregunta)">
 								<input type="checkbox" ng-checked="estacionSeleccionada.preguntas.indexOf(pregunta) > -1" />
 								<b>{{pregunta.contenido}}</b>
