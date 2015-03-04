@@ -93,7 +93,7 @@ var app = angular.module('EstacionesMngr', ['ngResource','ui.bootstrap'])
 						},
 						function(err){
 							$('.loader-cover').hide();
-							alert('Ocurrió un error al intentar registrar el recorrido');
+							toastr.error('Ocurrió un error al intentar registrar el recorrido');
 						});
 				}
 				else{
@@ -103,7 +103,7 @@ var app = angular.module('EstacionesMngr', ['ngResource','ui.bootstrap'])
 						},
 						function(err){
 							$('.loader-cover').hide();
-							alert('Ocurrió un error al intentar registrar el recorrido');
+							toastr.error('Ocurrió un error al intentar registrar el recorrido');
 						});
 				}
 			}

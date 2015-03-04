@@ -2,8 +2,8 @@
   <% if @periodo.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% @periodo.errors.each_with_index do |message, i| %>
-        <li><%= message[1] %></li>
+      <% @periodo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
       </ul>
     </div>
