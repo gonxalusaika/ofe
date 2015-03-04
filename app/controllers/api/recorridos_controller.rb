@@ -47,7 +47,7 @@ class Api::RecorridosController < ApplicationController
 		if @recorrido.save
 			render json: @recorrido
 		else
-			render json: @periodo.errors
+			render json: @recorrido.errors
 		end
     # respond_to do |format|
     #   if @periodo.save
