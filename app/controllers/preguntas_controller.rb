@@ -37,7 +37,7 @@ class PreguntasController < ApplicationController
 
     respond_to do |format|
       if @pregunta.save
-        format.html { redirect_to @pregunta, notice: 'Pregunta was successfully created.' }
+        format.html { redirect_to @pregunta, notice: 'Pregunta fue creada con exito.' }
         format.json { render :show, status: :created, location: @pregunta }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class PreguntasController < ApplicationController
   def update
     respond_to do |format|
       if @pregunta.update(pregunta_params)
-        format.html { redirect_to @pregunta, notice: 'Pregunta was successfully updated.' }
+        format.html { redirect_to @pregunta, notice: 'Pregunta fue actualizada con exito.' }
         format.json { render :show, status: :ok, location: @pregunta }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class PreguntasController < ApplicationController
   def destroy
     @pregunta.destroy
     respond_to do |format|
-      format.html { redirect_to preguntas_url, notice: 'Pregunta was successfully destroyed.' }
+      format.html { redirect_to preguntas_url, notice: 'Pregunta fue eliminada con exito.' }
       format.json { head :no_content }
     end
   end

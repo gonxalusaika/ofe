@@ -1,5 +1,10 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+	<div class="alert alert-success alert-dismissable">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <strong>Completado</strong> <%= notice %>
+	</div>
+<% end %>
 
 <h1>Pregunta
 	<%= link_to edit_pregunta_path(@pregunta), class: "btn btn-default" do %>

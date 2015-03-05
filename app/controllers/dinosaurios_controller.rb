@@ -31,7 +31,7 @@ class DinosauriosController < ApplicationController
 
     respond_to do |format|
       if @dinosaurio.save
-        format.html { redirect_to @dinosaurio, notice: 'Dinosaurio was successfully created.' }
+        format.html { redirect_to @dinosaurio, notice: 'Dinosaurio fue creado con exito.' }
         format.json { render :show, status: :created, location: @dinosaurio }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class DinosauriosController < ApplicationController
   def update
     respond_to do |format|
       if @dinosaurio.update(dinosaurio_params)
-        format.html { redirect_to @dinosaurio, notice: 'Dinosaurio was successfully updated.' }
+        format.html { redirect_to @dinosaurio, notice: 'Dinosaurio fue actualizado con exito.' }
         format.json { render :show, status: :ok, location: @dinosaurio }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class DinosauriosController < ApplicationController
   def destroy
     @dinosaurio.destroy
     respond_to do |format|
-      format.html { redirect_to dinosaurios_url, notice: 'Dinosaurio was successfully destroyed.' }
+      format.html { redirect_to dinosaurios_url, notice: 'Dinosaurio fue eliminado con exito.' }
       format.json { head :no_content }
     end
   end

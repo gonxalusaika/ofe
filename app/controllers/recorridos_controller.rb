@@ -18,7 +18,7 @@ class RecorridosController < ApplicationController
   def destroy
   	@recorrido.destroy
     respond_to do |format|
-      format.html { redirect_to recorridos_url, notice: 'Recorrido was successfully destroyed.' }
+      format.html { redirect_to recorridos_url, notice: 'Recorrido fue eliminado con exito.' }
       format.json { head :no_content }
     end
   end

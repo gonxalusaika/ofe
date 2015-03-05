@@ -4,7 +4,10 @@
     <span class="glyphicon glyphicon-cog"></span>
     Administración
   <% end %>
-  Periodos
+  Listado de períodos
+  <%= link_to new_periodo_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-plus"></span> Nuevo
+  <%end%>
 </h1>
 
 <table class="table table-striped">
@@ -41,7 +44,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Periodo', new_periodo_path %>
 </div>
